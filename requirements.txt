@@ -1,0 +1,15 @@
+streamlit==1.30.0
+pandas
+openai
+sentence-transformers
+scikit-learn
+requests
+python-dotenv
+tqdm
+matplotlib
+google-generativeai
+slack_sdk
+jira
+flask
+fuzzywuzzy[speedup]
+python-Levenshtein

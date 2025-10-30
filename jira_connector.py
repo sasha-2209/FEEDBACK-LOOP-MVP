@@ -2,6 +2,7 @@ import os
 import requests
 import pandas as pd
 from dotenv import load_dotenv
+import streamlit as st  # <-- ADD THIS IMPORT
 
 load_dotenv()
 
@@ -9,12 +10,15 @@ JIRA_BASE_URL = os.getenv("JIRA_BASE_URL")
 JIRA_EMAIL = os.getenv("JIRA_EMAIL")
 JIRA_API_TOKEN = os.getenv("JIRA_API_TOKEN")
 
+# --- THIS IS THE FIX ---
+# Cache the JIRA API call. If the JQL query is the same,
+# Streamlit will return the saved DataFrame instead of hitting the API.
+@st.cache_data
 def fetch_jira_issues(jql_query):
     """Fetch Jira issues using the new /rest/api/3/search/jql endpoint (fixed)"""
     if not all([JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN]):
         raise ValueError("Missing Jira environment variables. Please set JIRA_BASE_URL, JIRA_EMAIL, and JIRA_API_TOKEN.")
 
-    # ✅ Correct endpoint for Atlassian's latest Jira Cloud REST API
     url = f"{JIRA_BASE_URL}/rest/api/3/search/jql"
 
     headers = {
@@ -23,7 +27,6 @@ def fetch_jira_issues(jql_query):
     }
     auth = (JIRA_EMAIL, JIRA_API_TOKEN)
 
-    # ✅ Corrected key: use "jql" (not "query")
     payload = {
         "jql": jql_query,
         "maxResults": 200,
@@ -61,7 +64,11 @@ def fetch_jira_issues(jql_query):
             })
 
         if not issues:
-            raise ValueError("No issues returned. Check JQL syntax or field permissions.")
+            # Return an empty DataFrame instead of raising an error
+            return pd.DataFrame(columns=[
+                "Issue Key", "Summary", "Description", "Status", 
+                "Reporter", "Priority", "ARR", "Deal Size"
+            ])
 
         return pd.DataFrame(issues)
 

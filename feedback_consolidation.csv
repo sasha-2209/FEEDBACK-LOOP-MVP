@@ -1,114 +1,75 @@
 cluster_label,category,priority_score,request_count,reasoning,issue_keys,feedback_text
-Cucumber and BDD Framework SDK Support,SDK Coverage,4,9,"Users require dedicated SDK support and observability integration for BDD frameworks, primarily Cucumber (including Java, Playwright, Javascript, and JBehave variants).",[],PRDFBK-4676 SDK integration with Playwright+Cucumber+Typescript framework | PRDFBK-4009 Playwright cucumber SDK support | PRDFBK-3631 Playwright Cucumber Support: SDK and Accessibility | PRDFBK-3455 Support for Java+playwright+cucumber frameworks on TO | PRDFBK-2895 CucumberJS with Playwright support | PRDFBK-1590 O11y support for Cucumber Java & Selenium | PRDFBK-1498 cucumber-js/playwright sdk support | PRDFBK-1140 Support Java Cucumber O11y | PRDFBK-288 JBehave Cucumber integration
-Expanded SDK Coverage for Testing Frameworks,SDK Coverage,4,7,"Users require expanded SDK support for several popular testing frameworks, including MSTest, TestCafe, Junit, and KoTest, to enable deeper integration with their existing testing stacks.","['PRDFBK-4806', 'PRDFBK-3494', 'PRDFBK-2990', 'PRDFBK-2302', 'PRDFBK-1402', 'PRDFBK-979', 'PRDFBK-978']",PRDFBK-4806 KoTest SDK Support | PRDFBK-3494 SDK support for testcafe | PRDFBK-2990 SDK support for Testcafe | PRDFBK-2302 Requires SDK support for MSTest | PRDFBK-1402 Support for Junit in Java SDK | PRDFBK-979 Requires SDK support for MSTest | PRDFBK-978 Requires SDK support for MSTest
-SDK Support for Specflow (.NET BDD Framework),SDK Coverage,4,7,"Customers require initial or improved SDK support to integrate Specflow with common .NET testing frameworks (Nunit, MSTest, Playwright), noting that current support is either missing or non-functional.",[],PRDFBK-2675 Support for Specflow + Nunit | PRDFBK-2674 Support for Specflow + Nunit | PRDFBK-2673 Support for Specflow + Nunit | PRDFBK-2660 MSTest + Specflow SDK Support | PRDFBK-2658 Support via SDK for PW and Specflow | PRDFBK-1637 MSTest + Specflow SDK Support | PRDFBK-847 specflow Dot net SDK not working
-Espresso and XCUITest Test Observability Coverage,SDK Coverage,4,6,Customers require SDK support to integrate Test Observability features specifically with Espresso (Android) and XCUITest (iOS) mobile testing frameworks.,[],PRDFBK-3022 Need support for Test Observability with Espresso/Xcuitest | PRDFBK-2657 Espresso and XCUITest | PRDFBK-2287 Support Espresso/XCUITest Observability | PRDFBK-2252 Espresso and XCUITest support for Test Observability | PRDFBK-906 Espresso/XCUITest Support for Observability | PRDFBK-861 SDK support for XCUIT and Espresso
-Dynamic Test Distribution and Device Selection,Feature Request,4,5,"Users require dynamic, equal distribution of tests across multiple devices/platforms and the ability to run targeted, selective tests.","['PRDFBK-5078', 'PRDFBK-4912', 'PRDFBK-4910', 'PRDFBK-4909', 'PRDFBK-2257']",PRDFBK-5078 Running selective tests on Selected devices. | PRDFBK-4912 Equal distribution of tests across multiple devices | PRDFBK-4910 Equal distribution of tests across multiple devices | PRDFBK-4909 Equal distribution of tests across multiple devices | PRDFBK-2257 Distribute tests across multiple platform dynamically using SDK.
-SDK Onboarding and Documentation Deficiencies,UX Issue,4,5,"Users report significant difficulty integrating and onboarding the SDK due to confusing processes and inadequate documentation, with specific requests for improved Gradle instructions.",[],PRDFBK-2665 Gradle Documentation for SDK | PRDFBK-2376 Improve SDK Documentation | PRDFBK-2352 Difficulty in onboarding to SDK | PRDFBK-1244 DIfficulty in integrating the SDK | PRDFBK-173 Difficulty in onboarding to SDK
-Playwright Testing Framework Integrations,Feature Request,4,4,"Users are requesting explicit support and improved integration for Playwright across various setups, including C# Reqnroll, Nx.dev, and flexible configuration via testMatch.",[],PRDFBK-5967 Support for Playwright C# with Reqnroll | PRDFBK-3873 Support with Playwright-NX | PRDFBK-871 testMatch for Playwright | PRDFBK-687 Nx.dev support with playwright
-C# SDK Compatibility and Support,SDK Coverage,4,3,"Customers require extended compatibility for the C# SDK, specifically supporting .NET Framework and Apple Silicon (M1/M2) architectures, and need better documentation via release notes.",[],PRDFBK-3591 Support for C# .NET Framework with SDK | PRDFBK-2654 Provide release notes for C# SDK | PRDFBK-1028 M1/M2 support for C# sdk
-Multi-Platform Parallel Execution Control,Feature Request,4,3,Users require enhanced SDK capability to configure and manage parallel execution limits and default behavior when defining multiple platforms in a single configuration file.,[],PRDFBK-3376 SDK does not support parallelisation for multiple platforms using single yml file | PRDFBK-3236 Multiple platforms with specific parallel limit | PRDFBK-2662 Parallel execution by default if multiple platforms are defined
-Dynamic Device Configuration in SDK,Feature Request,4,3,"Customers are requesting dynamic and flexible ways to map, configure, or pass device-specific parameters (like URLs) directly through the SDK.",[],PRDFBK-2927 SDK to device mapping | PRDFBK-1237 support for device level app URL with sdk | PRDFBK-184 Dynamic way to pass Devices in SDK
-Python Behave SDK Support and Functionality,SDK Coverage,4,3,Users require explicit support for the Python Behave BDD framework and are reporting issues with the general functionality of the existing Python testing SDK (likely Pytest).,"['PRDFBK-2152', 'PRDFBK-2116', 'PRDFBK-849']",PRDFBK-2152 Support For Python Behave SDK | PRDFBK-2116 Support for Behave (Python) | PRDFBK-849 Py test SDK not working correctly
-SpecFlow BDD and Ruby SDK Coverage,SDK Coverage,4,3,"Users are requesting official SDK coverage and integration for the SpecFlow BDD testing framework, including necessary support for the Ruby language in observability tools.",[],"PRDFBK-1364 SpecFlow, Ruby Support for Observability | PRDFBK-1115 Spec Flow BDD for Observability | PRDFBK-1112 Spec Flow BDD for Observability"
-Ruby SDK Support and Automation Features,SDK Coverage,4,2,"Users require improved feature coverage for the Ruby SDK, specifically requesting automation and accessibility (A11y) support.","['PRDFBK-6074', 'PRDFBK-1033']",PRDFBK-6074 A11y Suport for Ruby - Automate | PRDFBK-1033 Ruby SDK Support
-Browserstack SDK Configuration and Python Integration Issues,SDK Coverage,4,2,Users are reporting integration failures with the Python SDK and require the inclusion of cacert functionality within the general Browserstack SDK.,"['PRDFBK-5977', 'PRDFBK-5468']",PRDFBK-5977 Browserstack Python SDK Integration does not work | PRDFBK-5468 [IRCC] Include cacert via browserstack-sdk
-Gauge Testing Framework SDK Support,SDK Coverage,4,2,Users require official SDK integration to support the Gauge testing framework for automation across both Java/Selenium and Python environments.,"['PRDFBK-4572', 'PRDFBK-4433']",PRDFBK-4572 SDK Support for Selenium + Java + Gauge | PRDFBK-4433 Alation | SDK support for Python Gauge for TO
-Uniformity of Build Tags Across Frameworks,UX Issue,4,2,Customers need build tag formats and definitions to be standardized and uniform across all supported frameworks/SDKs to ensure consistent data reporting and ease of integration.,[],PRDFBK-2664 Build tags to be uniform across frameworks | PRDFBK-1967 Build tags to be uniform across frameworks
-AccelQ SDK Support,SDK Coverage,4,2,Users are requesting official SDK support or integration specifically for the AccelQ automation testing platform.,"['PRDFBK-2072', 'PRDFBK-782']",PRDFBK-2072 AccelQ SDK | PRDFBK-782 Support AccelQ
-Missing Branch Information in NAD Integration,Bug,4,1,"Branch information is not being successfully integrated or transmitted to the NAD system, leading to data gaps.",['PRDFBK-4376'],PRDFBK-4376 Branch info not coming to NAD
-Automated Test Report Processing Failure,Bug,4,1,Automated test reports are getting stuck and failing to process or complete during the A11y review stage.,['PRDFBK-4375'],PRDFBK-4375 Automated tests reports stuck in A11y
-Concurrent Multi-Device Execution,Feature Request,4,1,Users require the ability to run distinct applications across multiple different devices simultaneously to improve testing efficiency.,['PRDFBK-4300'],PRDFBK-4300 Run different apps with different devices at the same time
-Enterprise Tunnel Setting Enforcement,Feature Request,4,1,Customers require the ability to enforce enterprise-level control and security settings for tunnel configurations within the organization's account.,['PRDFBK-3895'],PRDFBK-3895 Enterprise-Level Enforcement of Tunnel Settings in BrowserStack
-Java SDK Temporary File Conflict,Bug,4,1,The Java SDK fails to initialize or operate correctly when attempting to access files within the standard temporary directory structure (%TEMP%/gradl).,['PRDFBK-3298'],PRDFBK-3298 Java SDK doesnt work with file %TEMP%/gradl
-Cypress 13 Support Update,Feature Request,4,1,"Customers require compatibility and support for Cypress 13's latest versions, specifically for accessibility (a11y) automation.",['PRDFBK-3005'],PRDFBK-3005 Cypress 13 latest versions for a11y automation
-SDK Media Upload Capability,Feature Request,4,1,"Customers require robust SDK functionality to upload diverse media types including general files, images, and audio.",['PRDFBK-2798'],"PRDFBK-2798 Uploading files, images and audios via SDK"
-Cucumber JS Integration for Accessibility,Feature Request,4,1,Customers require Cucumber JS integration to enable necessary accessibility (A11y) automation workflows.,['PRDFBK-2663'],PRDFBK-2663 Cucumber JS integration required for A11y automation
-SDK installation unexpectedly formats POM file,Bug,4,1,"The SDK installation process modifies or reformats the user's Maven POM file without authorization, potentially breaking existing build configurations.",['PRDFBK-2184'],PRDFBK-2184 POM file gets formatted on SDK installation
-Missing Automatic browserstack.yml Generation (Maven),Bug,4,1,The required 'browserstack.yml' file is not automatically created after adding the necessary dependency in the pom file.,['PRDFBK-2066'],PRDFBK-2066 browserstack.yml is not created by default after adding dependency in pom
-Parallel Execution Support for Mobile SDKs,Feature Request,4,1,Requesting functionality within the SDKs to support parallel or concurrent task execution on Android and iOS.,['PRDFBK-434'],PRDFBK-434 Support for parallel execution through SDK for Android & iOS
-Kaspresso Test Runner Integration,SDK Coverage,3,2,Customers are inquiring about or requesting integration support for the Kaspresso Android Test Runner framework.,"['PRDFBK-5984', 'PRDFBK-5968']",PRDFBK-5984 KaspressoRunner Support Inquiry | PRDFBK-5968 Kaspresso Test Runner Support
-Robot Framework Browser SDK Integration,SDK Coverage,3,2,Customers are requesting SDK compatibility/integration for the 'Robot Framework with Browser' (Playwright-based) library.,"['PRDFBK-5555', 'PRDFBK-5512']",PRDFBK-5555 Robot Framework with Browser (the Playwright-based library for Robot Framework) with SDK | PRDFBK-5512 Robot Framework with Browser (the Playwright-based library for Robot Framework)  with SDK
-SDK Configuration Management and Automation,Feature Request,3,2,Users request features to centralize SDK configuration (YML) management across projects and enable programmatic generation via API.,[],PRDFBK-4146 One SDK config YML file across multiple projects | PRDFBK-2913 Generate SDK YML files using an API call
-New Test Framework Integrations,Feature Request,3,2,"Customers are requesting support for specific testing frameworks (Test Complete, Python Behave) to integrate with the Test Observability platform.","['PRDFBK-2715', 'PRDFBK-680']",PRDFBK-2715 Test Complete Integration | PRDFBK-680 Python Behave Integration with Test Observability
-Detox SDK Support,SDK Coverage,3,2,Customers need official SDK support and integration when using the Detox mobile testing framework.,[],PRDFBK-2653 SDK support for detox | PRDFBK-1198 SDK support for detox
-Katalon Test Observability Integration,Feature Request,3,2,Customers require official support and integration for the Katalon testing platform within the Test Observability features.,[],PRDFBK-401 Katalon Observability integration | PRDFBK-145 Support for Katalon in Test Observability
-Automated Screen Reader Scanning,Feature Request,3,1,Users are requesting a new feature to enable automated accessibility scanning for web applications using simulated screen reader functionality.,['PRDFBK-6083'],PRDFBK-6083 Automated Screen Reader Scanning for Web
-BS SDK Cross-Platform Support,Feature Request,3,1,Requesting the addition of a cross-platform option within the BS SDK.,['PRDFBK-5980'],PRDFBK-5980 Cross platform option in BS SDK
-ANT Build System SDK Support,SDK Coverage,3,1,Customers require official support and documentation for integrating the SDK into projects using ANT builds.,['PRDFBK-5732'],PRDFBK-5732 Support SDK on ANT builds
-Rust SDK Support,SDK Coverage,3,1,Customers are requesting the development and release of an official SDK for the Rust programming language.,['PRDFBK-5526'],PRDFBK-5526 Support for Rust language in official SDK
-Conditional Capabilities in SDK,Feature Request,3,1,A request to implement features that allow for conditional capabilities or settings directly within the SDK framework.,['PRDFBK-4881'],PRDFBK-4881 Conditional Capabilities in SDK
-Dart SDK Support,SDK Coverage,3,1,Customers require a dedicated SDK package to support integration with the Dart framework.,['PRDFBK-4826'],PRDFBK-4826 SDK support for Dart framework
-Selenide SDK Integration,SDK Coverage,3,1,Customers require official support and integration for the Selenide SDK.,['PRDFBK-4442'],PRDFBK-4442 Support for Selenide SDK for TO
-Asynchronous Test Status Updates,Feature Request,3,1,Request to update the status of asynchronous test scenarios immediately upon completion for better tracking on BrowserStack.,['PRDFBK-4314'],PRDFBK-4314 Update test scenario's async as and when they complete on BrowserSTack
-Appium Support for Java Serenity,SDK Coverage,3,1,A request for official support and integration capabilities specifically for Appium usage within Java Serenity projects.,['PRDFBK-3978'],PRDFBK-3978 Appium support for Java Serenity
-Missing Parallels Per Platform in Java Serenity SDK,SDK Coverage,3,1,"The Java Serenity SDK currently does not support the 'Parallels Per Platform' feature, limiting cross-platform functionality.",['PRDFBK-3977'],PRDFBK-3977 Parallels Per Platform not supported on Java Serenity SDK
-Playwright Video Parameter Configuration,Feature Request,3,1,Customers require the ability to define a video parameter within the Playwright configuration file.,['PRDFBK-3849'],PRDFBK-3849 Support for video parameter in playwright config file
-Reqnroll Testing Framework Integration,Feature Request,3,1,Customers are requesting official SDK support and integration for the Reqnroll testing framework.,['PRDFBK-3598'],PRDFBK-3598 Support for https://reqnroll.net/ via the SDK
-App to Testcase Mapping,Feature Request,3,1,A request for functionality allowing users to map specific applications directly to relevant test cases or suites.,['PRDFBK-2928'],PRDFBK-2928 App to testcase mapping
-SDK Test Skipping Optimization,Feature Request,3,1,Request to add logic for the SDK to identify and skip tests that do not generate Percy snapshots to improve efficiency.,['PRDFBK-2839'],PRDFBK-2839 Have SDK identiofy tests without Percy snapshots and skip when using Percy
-SDK Log Path Configuration,Feature Request,3,1,Customers want the ability to configure or change the default logging output path for the Browserstack SDK.,['PRDFBK-2837'],PRDFBK-2837 change default logs path of Browserstack SDK
-Request for Alternative Parallelism Format,Feature Request,3,1,Users are requesting an additional format or method for handling parallelism.,['PRDFBK-2799'],PRDFBK-2799 Another parallelism format
-TM Dashboard Visibility Dependency,Bug,3,1,"Automated Test Execution metrics are incorrectly restricted, appearing on the TM Dashboard only when the 'TO' (Test Optimization) option is enabled.",['PRDFBK-2661'],PRDFBK-2661 Automated Test Execution appears on the TM Dashboard only when TO is enabled.
-SDK Support for Session Status and Naming,Feature Request,3,1,Customers require methods in the SDK to manage and retrieve session status and display names programmatically.,['PRDFBK-2659'],PRDFBK-2659 SDK support for session status and name
-SDK Transparency and Clarity,UX Issue,3,1,"The SDK is perceived as opaque, hindering developers' ability to understand its internal workings or debug implementation issues.",['PRDFBK-2169'],PRDFBK-2169 SDK not being transparent
-Test-Level Configuration Limits,Feature Request,3,1,"The feedback mentions the need for setting limits, capabilities, or caps at the individual test level for configuration or resource management.",[],PRDFBK-2128 Test-Lvl Caps
-SDK YML buildIdentifier Configuration Bug,Bug,3,1,Commenting out `buildIdentifier` in the SDK YML configuration still results in the system incorrectly generating and appending a unique build number.,['PRDFBK-1966'],"PRDFBK-1966 Commenting out buildIdentifier in SDK YML, should not add unique number in buil"
-TestCafe Integration for Observability,Feature Request,3,1,A request to add support or integration for TestCafe framework specifically for observability (o11y) purposes.,['PRDFBK-1514'],PRDFBK-1514 testcafe for o11y
-API for Managing Muted Tests,Feature Request,3,1,Customers require a new API endpoint to programmatically fetch the status of and trigger muted tests.,['PRDFBK-1242'],PRDFBK-1242 API to fetch and trigger muted tests.
-TestNG Integration Request,Feature Request,3,1,Customers require direct integration capabilities with the TestNG testing framework.,['PRDFBK-749'],PRDFBK-749 Customer would like direct integration with TestNG
-Mspec Framework Integration,Feature Request,3,1,Customers require support for the Mspec testing framework within the Test Observability tooling.,['PRDFBK-695'],PRDFBK-695 Support Mspec framework for Test Observability
-Terminal Platform Visibility,UX Issue,3,1,Customers request the ability to display active platform information directly within the SDK terminal interface for better context.,['PRDFBK-314'],PRDFBK-314 SDK feedback - Show Platforms in terminal
-Capybara SDK Feedback,SDK Coverage,2,1,A customer has submitted feedback regarding the Capybara SDK integration or functionality.,['PRDFBK-2069'],PRDFBK-2069 Capybara SDK
-Error: Failed to Summarize,Other,1,3,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 2.277239304s. [links {
-  description: ""Learn more about Gemini API quotas""
-  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
-}
-, violations {
-  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
-  quota_dimensions {
-    key: ""model""
-    value: ""gemini-2.5-flash""
-  }
-  quota_dimensions {
-    key: ""location""
-    value: ""global""
-  }
-  quota_value: 10
-}
-, retry_delay {
-  seconds: 2
-}
-]",[],PRDFBK-2655 Parallel Test Execution Control | PRDFBK-2652 Ability to run parallel test on each scenario rather than a complete feature fil | PRDFBK-2245 SDK - Support for @test method parallel execution for Testng
-Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 53.020081881s. [links {
-  description: ""Learn more about Gemini API quotas""
-  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
-}
-, violations {
-  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
-  quota_dimensions {
-    key: ""model""
-    value: ""gemini-2.5-flash""
-  }
-  quota_dimensions {
-    key: ""location""
-    value: ""global""
-  }
-  quota_value: 10
-}
-, retry_delay {
-  seconds: 53
-}
-]",[],PRDFBK-3970 Support log4j with SDK on the terminal logs | PRDFBK-2372 Need changelogs for SDK
+SDK Onboarding & Documentation Quality,UX Issue,5,5,"The core problem is the high difficulty of integrating and onboarding new users to the SDK, driven primarily by poor documentation quality and lack of specific guides (e.g., Gradle).",[],PRDFBK-2665 Gradle Documentation for SDK | PRDFBK-2376 Improve SDK Documentation | PRDFBK-2352 Difficulty in onboarding to SDK | PRDFBK-1244 DIfficulty in integrating the SDK | PRDFBK-173 Difficulty in onboarding to SDK
+SDK Support for Cucumber/Playwright BDD Frameworks,SDK Coverage,4,9,"Customers require official SDK support to enable observability/instrumentation (O11y) for their BDD test frameworks (Cucumber/JBehave), especially when integrated with testing tools like Playwright and Selenium across multiple languages (Java, JS, TS).",[],PRDFBK-4676 SDK integration with Playwright+Cucumber+Typescript framework | PRDFBK-4009 Playwright cucumber SDK support | PRDFBK-3631 Playwright Cucumber Support: SDK and Accessibility | PRDFBK-3455 Support for Java+playwright+cucumber frameworks on TO | PRDFBK-2895 CucumberJS with Playwright support | PRDFBK-1590 O11y support for Cucumber Java & Selenium | PRDFBK-1498 cucumber-js/playwright sdk support | PRDFBK-1140 Support Java Cucumber O11y | PRDFBK-288 JBehave Cucumber integration
+SDK Framework Coverage Expansion,SDK Coverage,4,7,"Users require SDK support for key testing frameworks including Testcafe, MSTest, KoTest, and JUnit to enable integration.",[],PRDFBK-4806 KoTest SDK Support | PRDFBK-3494 SDK support for testcafe | PRDFBK-2990 SDK support for Testcafe | PRDFBK-2302 Requires SDK support for MSTest | PRDFBK-1402 Support for Junit in Java SDK | PRDFBK-979 Requires SDK support for MSTest | PRDFBK-978 Requires SDK support for MSTest
+Specflow SDK Integration and Support,SDK Coverage,4,7,"Users require comprehensive and functional SDK support for Specflow, specifically integrating with .NET runners like Nunit, MSTest, and Playwright, as current implementations are reported as failing or incomplete.",[],PRDFBK-2675 Support for Specflow + Nunit | PRDFBK-2674 Support for Specflow + Nunit | PRDFBK-2673 Support for Specflow + Nunit | PRDFBK-2660 MSTest + Specflow SDK Support | PRDFBK-2658 Support via SDK for PW and Specflow | PRDFBK-1637 MSTest + Specflow SDK Support | PRDFBK-847 specflow Dot net SDK not working
+Espresso & XCUITest Observability Support,Feature Request,4,6,"Customers require SDK support to enable Test Observability features for major mobile testing frameworks, specifically Espresso (Android) and XCUITest (iOS).",[],PRDFBK-3022 Need support for Test Observability with Espresso/Xcuitest | PRDFBK-2657 Espresso and XCUITest | PRDFBK-2287 Support Espresso/XCUITest Observability | PRDFBK-2252 Espresso and XCUITest support for Test Observability | PRDFBK-906 Espresso/XCUITest Support for Observability | PRDFBK-861 SDK support for XCUIT and Espresso
+Dynamic Test Distribution and Device Selection,Feature Request,4,5,"Customers require dynamic, equitable distribution of test workloads across multiple devices/platforms, including options for running selective tests.","['PRDFBK-5078', 'PRDFBK-4912', 'PRDFBK-4910', 'PRDFBK-4909', 'PRDFBK-2257']",PRDFBK-5078 Running selective tests on Selected devices. | PRDFBK-4912 Equal distribution of tests across multiple devices | PRDFBK-4910 Equal distribution of tests across multiple devices | PRDFBK-4909 Equal distribution of tests across multiple devices | PRDFBK-2257 Distribute tests across multiple platform dynamically using SDK.
+Playwright Framework Integration and Coverage,SDK Coverage,4,4,"Users are requesting expanded support and configuration for the Playwright testing framework, specifically needing integration with Nx.dev/Playwright-NX and C# language bindings (Reqnroll).",[],PRDFBK-5967 Support for Playwright C# with Reqnroll | PRDFBK-3873 Support with Playwright-NX | PRDFBK-871 testMatch for Playwright | PRDFBK-687 Nx.dev support with playwright
+C# SDK Enhancements,SDK Coverage,4,3,"Customers require expanded C# SDK coverage, specifically adding M1/M2 chip and .NET Framework support, along with mandatory release notes for improved documentation.",[],PRDFBK-3591 Support for C# .NET Framework with SDK | PRDFBK-2654 Provide release notes for C# SDK | PRDFBK-1028 M1/M2 support for C# sdk
+Parallel Execution for Multi-Platform SDK Configuration,Feature Request,4,3,Customers require enhanced parallel execution capabilities and fine-grained configuration control when running tests across multiple platforms defined in a single config file.,[],PRDFBK-3376 SDK does not support parallelisation for multiple platforms using single yml file | PRDFBK-3236 Multiple platforms with specific parallel limit | PRDFBK-2662 Parallel execution by default if multiple platforms are defined
+Dynamic Device Configuration in SDK,Feature Request,4,3,"Customers require dynamic and flexible methods for passing device identifiers (mapping, app URLs) when using the SDK.",[],PRDFBK-2927 SDK to device mapping | PRDFBK-1237 support for device level app URL with sdk | PRDFBK-184 Dynamic way to pass Devices in SDK
+Granular Parallel Test Execution Control,Feature Request,4,3,"Users require more granular control over parallel test execution (at the scenario or method level, e.g., TestNG @test) within the SDK to optimize test run times and efficiency.","['PRDFBK-2655', 'PRDFBK-2652', 'PRDFBK-2245']",PRDFBK-2655 Parallel Test Execution Control | PRDFBK-2652 Ability to run parallel test on each scenario rather than a complete feature fil | PRDFBK-2245 SDK - Support for @test method parallel execution for Testng
+Python SDK Coverage and Functionality,SDK Coverage,4,3,Users are requesting official support for the Python Behave SDK framework and reporting existing issues with the general Py test SDK.,[],PRDFBK-2152 Support For Python Behave SDK | PRDFBK-2116 Support for Behave (Python) | PRDFBK-849 Py test SDK not working correctly
+Ruby SDK Support and Accessibility Features,SDK Coverage,4,2,"Users require improved general support for the Ruby SDK, specifically requesting automation and better accessibility (A11y) features.","['PRDFBK-6074', 'PRDFBK-1033']",PRDFBK-6074 A11y Suport for Ruby - Automate | PRDFBK-1033 Ruby SDK Support
+Browserstack SDK Integration and Certificate Configuration,SDK Coverage,4,2,Customers are experiencing failures with Python SDK integration and require the inclusion of CA certificate configuration support within the Browserstack SDK for secure environments.,"['PRDFBK-5977', 'PRDFBK-5468']",PRDFBK-5977 Browserstack Python SDK Integration does not work | PRDFBK-5468 [IRCC] Include cacert via browserstack-sdk
+Robot Framework (Playwright) SDK Integration,SDK Coverage,4,2,Users request official SDK support for Robot Framework when utilized with the Playwright-based Browser library.,[],PRDFBK-5555 Robot Framework with Browser (the Playwright-based library for Robot Framework) with SDK | PRDFBK-5512 Robot Framework with Browser (the Playwright-based library for Robot Framework)  with SDK
+SDK Support for Gauge Framework,SDK Coverage,4,2,Customers require official SDK support to integrate the product with the Gauge testing framework (Java/Selenium and Python).,"['PRDFBK-4572', 'PRDFBK-4433']",PRDFBK-4572 SDK Support for Selenium + Java + Gauge | PRDFBK-4433 Alation | SDK support for Python Gauge for TO
+Testing Framework Integration Requests,Feature Request,4,2,"Users are requesting new official integrations for specific testing frameworks (TestComplete, Python Behave) to connect with the Test Observability feature.",[],PRDFBK-2715 Test Complete Integration | PRDFBK-680 Python Behave Integration with Test Observability
+Uniformity of Build Tags Across Frameworks,UX Issue,4,2,Customers require standardized implementation and naming conventions for 'Build tags' across all supported frameworks/SDKs to ensure consistency.,[],PRDFBK-2664 Build tags to be uniform across frameworks | PRDFBK-1967 Build tags to be uniform across frameworks
+Detox SDK Support,SDK Coverage,4,2,Customers are requesting the implementation of official SDK support for the Detox mobile E2E testing framework.,[],PRDFBK-2653 SDK support for detox | PRDFBK-1198 SDK support for detox
+Katalon Integration for Test Observability,Feature Request,4,2,Customers need native support to integrate the Katalon testing framework with the Test Observability feature.,"['PRDFBK-401', 'PRDFBK-145']",PRDFBK-401 Katalon Observability integration | PRDFBK-145 Support for Katalon in Test Observability
+Automated Screen Reader Testing for Web,Feature Request,4,1,Request for adding automated scanning features specifically for web content using screen reader simulation or technology.,['PRDFBK-6083'],PRDFBK-6083 Automated Screen Reader Scanning for Web
+Automated Test Report Sticking,Bug,4,1,"Automated test reports are failing to process correctly, becoming stuck during the A11y stage.",['PRDFBK-4375'],PRDFBK-4375 Automated tests reports stuck in A11y
+Enterprise Tunnel Settings Enforcement,Feature Request,4,1,Users require enterprise-level controls to enforce specific tunnel settings and configurations within BrowserStack.,['PRDFBK-3895'],PRDFBK-3895 Enterprise-Level Enforcement of Tunnel Settings in BrowserStack
+Cypress 13 Support for Accessibility Testing,Feature Request,4,1,Users require support for Cypress version 13 to enable a11y automation testing capabilities.,['PRDFBK-3005'],PRDFBK-3005 Cypress 13 latest versions for a11y automation
+SDK Media Upload Capability,Feature Request,4,1,"Customers are requesting functionality to upload various media types (files, images, audio) directly through the SDK.",['PRDFBK-2798'],"PRDFBK-2798 Uploading files, images and audios via SDK"
+Cucumber JS Integration for A11y Automation,Feature Request,4,1,A required integration with the Cucumber JS framework is needed to support accessibility (A11y) automation.,['PRDFBK-2663'],PRDFBK-2663 Cucumber JS integration required for A11y automation
+Incorrect POM File Modification on SDK Install,Bug,4,1,The SDK installation process incorrectly modifies or reformats the user's Maven POM configuration file.,['PRDFBK-2184'],PRDFBK-2184 POM file gets formatted on SDK installation
+Missing Default browserstack.yml Generation,Bug,4,1,The browserstack.yml configuration file is not automatically created after adding the required dependency in the pom file.,['PRDFBK-2066'],PRDFBK-2066 browserstack.yml is not created by default after adding dependency in pom
+API for Muted Test Management,Feature Request,4,1,Customers require a dedicated API endpoint to programmatically fetch the status of and trigger tests that have been muted.,['PRDFBK-1242'],PRDFBK-1242 API to fetch and trigger muted tests.
+Customer-Side SDK Debugging Tools,Feature Request,4,1,"Customers require better, self-service tools and documentation for debugging issues directly within their implementation of the SDK.",['PRDFBK-1076'],PRDFBK-1076 SDK Debugging from Customer Side
+Parallel execution support for mobile SDKs,Feature Request,4,1,Customers require the ability to run tests or processes in parallel using the native Android and iOS SDKs to improve efficiency.,['PRDFBK-434'],PRDFBK-434 Support for parallel execution through SDK for Android & iOS
+SpecFlow BDD Integration and Ruby SDK Support,Feature Request,3,3,"Customers require integration for SpecFlow BDD testing frameworks into observability tools, including specific SDK support for Ruby.",[],"PRDFBK-1364 SpecFlow, Ruby Support for Observability | PRDFBK-1115 Spec Flow BDD for Observability | PRDFBK-1112 Spec Flow BDD for Observability"
+Kaspresso Test Runner Support,SDK Coverage,3,2,Users are requesting support or documentation for integrating with the Kaspresso Test Runner framework.,"['PRDFBK-5984', 'PRDFBK-5968']",PRDFBK-5984 KaspressoRunner Support Inquiry | PRDFBK-5968 Kaspresso Test Runner Support
+SDK Configuration File Management,Feature Request,3,2,Users require features for centralized configuration YML file management (across projects) and API-driven generation for automation.,"['PRDFBK-4146', 'PRDFBK-2913']",PRDFBK-4146 One SDK config YML file across multiple projects | PRDFBK-2913 Generate SDK YML files using an API call
+SDK Documentation and Logging Features,Feature Request,3,2,Customers require the addition of log4j logging support for SDK terminal output and official changelogs for tracking SDK version changes.,[],PRDFBK-3970 Support log4j with SDK on the terminal logs | PRDFBK-2372 Need changelogs for SDK
+AccelQ SDK Support,SDK Coverage,3,2,Users are requesting the development and release of an official SDK or integration support for AccelQ.,"['PRDFBK-2072', 'PRDFBK-782']",PRDFBK-2072 AccelQ SDK | PRDFBK-782 Support AccelQ
+Cross-platform BS SDK Support,Feature Request,3,1,Request for enabling cross-platform capabilities within the BS SDK.,['PRDFBK-5980'],PRDFBK-5980 Cross platform option in BS SDK
+ANT Build System SDK Support,SDK Coverage,3,1,Customers require official SDK support and integration for projects using the Apache ANT build system.,['PRDFBK-5732'],PRDFBK-5732 Support SDK on ANT builds
+Rust SDK Support,SDK Coverage,3,1,Customers are requesting official SDK support for the Rust programming language.,['PRDFBK-5526'],PRDFBK-5526 Support for Rust language in official SDK
+SDK Conditional Capabilities,Feature Request,3,1,Request for the SDK to support defining and handling capabilities that are conditional based on specific run-time factors.,['PRDFBK-4881'],PRDFBK-4881 Conditional Capabilities in SDK
+Dynamic SDK File Switching,Feature Request,3,1,Customers require the capability to switch or load different SDK configuration files dynamically during application runtime.,['PRDFBK-4880'],PRDFBK-4880 Switch SDK files Dynamically
+Unified App/Web Driver SDK Flow,Feature Request,3,1,Request for the SDK to natively support and integrate both application drivers and web drivers into a unified workflow.,['PRDFBK-4856'],PRDFBK-4856 Support app and web driver in a single flow via SDK
+Dart SDK Support,SDK Coverage,3,1,Customers are requesting the development of an official SDK to support the Dart programming framework/language.,['PRDFBK-4826'],PRDFBK-4826 SDK support for Dart framework
+Selenide SDK Support,SDK Coverage,3,1,Customers are requesting official support and integration for the Selenide SDK.,['PRDFBK-4442'],PRDFBK-4442 Support for Selenide SDK for TO
+Missing Branch Information in NAD,Bug,3,1,Branch information that is expected to be reported is currently failing to display within the NAD system.,['PRDFBK-4376'],PRDFBK-4376 Branch info not coming to NAD
+Asynchronous Test Status Updates for BrowserStack,Feature Request,3,1,"Requesting the ability to update test scenario status asynchronously as soon as they complete, particularly within the BrowserStack testing environment.",['PRDFBK-4314'],PRDFBK-4314 Update test scenario's async as and when they complete on BrowserSTack
+Simultaneous Multi-Device/App Testing,Feature Request,3,1,Customers require the ability to run multiple different application instances on various devices simultaneously for parallel testing.,['PRDFBK-4300'],PRDFBK-4300 Run different apps with different devices at the same time
+Appium Java Serenity Support,Feature Request,3,1,Customers require official support for integrating Appium testing capabilities specifically within the Java Serenity framework.,['PRDFBK-3978'],PRDFBK-3978 Appium support for Java Serenity
+Java Serenity SDK - Parallels Per Platform Support,SDK Coverage,3,1,"Customers require support for ""Parallels Per Platform"" functionality within the Java Serenity SDK.",['PRDFBK-3977'],PRDFBK-3977 Parallels Per Platform not supported on Java Serenity SDK
+Playwright Video Config Parameter,Feature Request,3,1,A request for adding support for configuring video parameters directly within the Playwright configuration file.,['PRDFBK-3849'],PRDFBK-3849 Support for video parameter in playwright config file
+Reqnroll SDK Integration,Feature Request,3,1,Users require official SDK support and integration for the Reqnroll BDD testing framework.,['PRDFBK-3598'],PRDFBK-3598 Support for https://reqnroll.net/ via the SDK
+Java SDK Compatibility with Temp Files,Bug,3,1,"The Java SDK fails to operate correctly when accessing files within the standard temporary directory, specifically encountering issues with Gradle temporary file paths.",['PRDFBK-3298'],PRDFBK-3298 Java SDK doesnt work with file %TEMP%/gradl
+Application to Test Case Mapping,Feature Request,3,1,Users require functionality to establish a direct mapping between applications/products and specific test cases.,['PRDFBK-2928'],PRDFBK-2928 App to testcase mapping
+Night Watch JS Lower Version Support,SDK Coverage,3,1,Customers require Test Observability to be compatible with older/lower versions of the Night Watch JS testing framework.,['PRDFBK-2916'],PRDFBK-2916 Support for Lower Versions of Night Watch JS with Test Observability
+Jetbrain SDK Plugin,Feature Request,3,1,Feedback or request regarding the functionality of the Jetbrain SDK plugin.,['PRDFBK-2842'],PRDFBK-2842 Jetbrain SDK plugin
+SDK Test Skipping Optimization,Feature Request,3,1,Request for the SDK to detect tests lacking Percy snapshots and automatically skip them for performance optimization.,['PRDFBK-2839'],PRDFBK-2839 Have SDK identiofy tests without Percy snapshots and skip when using Percy
+New Parallelism Format Option,Feature Request,3,1,Customers are requesting alternative configuration or implementation formats for handling parallelism.,['PRDFBK-2799'],PRDFBK-2799 Another parallelism format
+Test Execution Visibility Conditional Dependency,Bug,3,1,The Automated Test Execution status is only displayed on the Test Management Dashboard when the Test Optimization (TO) feature is explicitly enabled.,['PRDFBK-2661'],PRDFBK-2661 Automated Test Execution appears on the TM Dashboard only when TO is enabled.
+SDK Session Status and Naming,Feature Request,3,1,Users require official SDK methods to retrieve the current session status and set a custom session name.,['PRDFBK-2659'],PRDFBK-2659 SDK support for session status and name
+SDK Lack of Transparency,UX Issue,3,1,The SDK is criticized for not providing enough transparency regarding its internal operations and processes.,[],PRDFBK-2169 SDK not being transparent
+Test Level Capabilities Management,Feature Request,3,1,Request for managing or defining capabilities/limits specifically at the individual test execution level.,['PRDFBK-2128'],PRDFBK-2128 Test-Lvl Caps
+Capybara SDK Support,SDK Coverage,3,1,"The feedback explicitly mentions the Capybara SDK, suggesting a need for integration, support, or discussion regarding this specific tool.",['PRDFBK-2069'],PRDFBK-2069 Capybara SDK
+SDK YML buildIdentifier Behavior,Bug,3,1,Commenting out the `buildIdentifier` field in the SDK YML fails to prevent the addition of a unique identifying number to the build output.,['PRDFBK-1966'],"PRDFBK-1966 Commenting out buildIdentifier in SDK YML, should not add unique number in buil"
+TestCafe Integration Support,Feature Request,3,1,A request for official support and integration of the TestCafe testing framework for observability/instrumentation purposes.,['PRDFBK-1514'],PRDFBK-1514 testcafe for o11y
+XCUITest Framework Integration,Feature Request,3,1,Customers require formal support and integration with the Apple XCUITest framework.,['PRDFBK-905'],PRDFBK-905 Support for XCUITest
+TestNG Integration Request,Feature Request,3,1,A direct integration with the TestNG testing framework is requested.,['PRDFBK-749'],PRDFBK-749 Customer would like direct integration with TestNG
+Change Default SDK Logs Path,Feature Request,2,1,Users require a configuration option to change the default logging output path for the Browserstack SDK.,['PRDFBK-2837'],PRDFBK-2837 change default logs path of Browserstack SDK
+Show Platforms in SDK Terminal Output,Feature Request,2,1,A request for the SDK to display platform information explicitly within the terminal output.,['PRDFBK-314'],PRDFBK-314 SDK feedback - Show Platforms in terminal
 Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
 * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 4.754870246s. [links {
+Please retry in 33.438895435s. [links {
   description: ""Learn more about Gemini API quotas""
   url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
 }
@@ -126,120 +87,6 @@ Please retry in 4.754870246s. [links {
   quota_value: 10
 }
 , retry_delay {
-  seconds: 4
+  seconds: 33
 }
-]",[],PRDFBK-4880 Switch SDK files Dynamically
-Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 51.410320777s. [links {
-  description: ""Learn more about Gemini API quotas""
-  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
-}
-, violations {
-  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
-  quota_dimensions {
-    key: ""model""
-    value: ""gemini-2.5-flash""
-  }
-  quota_dimensions {
-    key: ""location""
-    value: ""global""
-  }
-  quota_value: 10
-}
-, retry_delay {
-  seconds: 51
-}
-]",[],PRDFBK-4856 Support app and web driver in a single flow via SDK
-Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 5.656706087s. [links {
-  description: ""Learn more about Gemini API quotas""
-  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
-}
-, violations {
-  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
-  quota_dimensions {
-    key: ""model""
-    value: ""gemini-2.5-flash""
-  }
-  quota_dimensions {
-    key: ""location""
-    value: ""global""
-  }
-  quota_value: 10
-}
-, retry_delay {
-  seconds: 5
-}
-]",[],PRDFBK-2916 Support for Lower Versions of Night Watch JS with Test Observability
-Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 52.329379321s. [links {
-  description: ""Learn more about Gemini API quotas""
-  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
-}
-, violations {
-  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
-  quota_dimensions {
-    key: ""model""
-    value: ""gemini-2.5-flash""
-  }
-  quota_dimensions {
-    key: ""location""
-    value: ""global""
-  }
-  quota_value: 10
-}
-, retry_delay {
-  seconds: 52
-}
-]",[],PRDFBK-2842 Jetbrain SDK plugin
-Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 290.619321ms. [links {
-  description: ""Learn more about Gemini API quotas""
-  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
-}
-, violations {
-  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
-  quota_dimensions {
-    key: ""model""
-    value: ""gemini-2.5-flash""
-  }
-  quota_dimensions {
-    key: ""location""
-    value: ""global""
-  }
-  quota_value: 10
-}
-, retry_delay {
-}
-]",[],PRDFBK-1076 SDK Debugging from Customer Side
-Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 46.840856993s. [links {
-  description: ""Learn more about Gemini API quotas""
-  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
-}
-, violations {
-  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
-  quota_dimensions {
-    key: ""model""
-    value: ""gemini-2.5-flash""
-  }
-  quota_dimensions {
-    key: ""location""
-    value: ""global""
-  }
-  quota_value: 10
-}
-, retry_delay {
-  seconds: 46
-}
-]",[],PRDFBK-905 Support for XCUITest
+]",[],PRDFBK-695 Support Mspec framework for Test Observability

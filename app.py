@@ -2,12 +2,12 @@ import streamlit as st
 import pandas as pd
 from io import BytesIO
 from dotenv import load_dotenv
+import os
+from datetime import datetime
 
-# --- CORRECTED IMPORTS ---
-# We import the cluster-finder from mapper and the group-summarizer from classifier
+# --- Imports for app logic ---
 from classifier import summarize_clusters
 from mapper import get_semantic_clusters, map_feedback_to_dealblockers
-# ---
 from jira_connector import fetch_jira_issues
 
 # Load env (so jira_connector can read credentials from .env)
@@ -15,6 +15,10 @@ load_dotenv()
 
 st.set_page_config(page_title="Feedback Consolidation & Dealblocker Mapper", layout="wide")
 st.title("🧠 Feedback Consolidation & Dealblocker Mapping Tool")
+
+# --- Define History File Names ---
+HISTORY_FILE_STEP_3 = "step_3_consolidation_history.csv"
+HISTORY_FILE_STEP_4 = "step_4_mapping_history.csv"
 
 # --- Utility: Download button for DataFrames ---
 def download_button(df, label, filename):
@@ -27,8 +31,109 @@ def download_button(df, label, filename):
         mime="text/csv",
     )
 
+# --- Utility: Function to SAVE run data (replaces append_to_history) ---
+def save_run_data(df, history_file, run_id):
+    """
+    Saves the dataframe for a specific run_id to the history file.
+    It overwrites any previous data for that same run_id.
+    """
+    if df is None or df.empty:
+        return
+    
+    new_data = df.copy()
+    new_data["run_id"] = run_id
+    new_data["run_timestamp"] = datetime.now().isoformat()
+    
+    if os.path.exists(history_file):
+        try:
+            history_df = pd.read_csv(history_file)
+            # Remove any old data from this same run_id
+            history_df = history_df[history_df['run_id'] != run_id]
+            # Combine old history with new data
+            combined_df = pd.concat([history_df, new_data])
+            combined_df.to_csv(history_file, index=False)
+        except pd.errors.EmptyDataError:
+            # File is empty, just write new data
+            new_data.to_csv(history_file, index=False)
+    else:
+        # File doesn't exist, write new data with header
+        new_data.to_csv(history_file, index=False)
+
+
+# --- Generate a unique ID for this session's run ---
+if "run_id" not in st.session_state:
+    st.session_state.run_id = f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+# -----------------------------------------------------------------
+# --- NEW: SIDEBAR - RUN HISTORY ---
+# -----------------------------------------------------------------
+st.sidebar.title("🕰️ Run History")
+st.sidebar.info(f"Current Run ID: `{st.session_state.run_id}`")
+
+# Load history files if they exist
+hist_df_3 = None
+hist_df_4 = None
+
+if os.path.exists(HISTORY_FILE_STEP_3):
+    try:
+        hist_df_3 = pd.read_csv(HISTORY_FILE_STEP_3)
+    except pd.errors.EmptyDataError:
+        pass # File is empty
+
+if os.path.exists(HISTORY_FILE_STEP_4):
+    try:
+        hist_df_4 = pd.read_csv(HISTORY_FILE_STEP_4)
+    except pd.errors.EmptyDataError:
+        pass # File is empty
+
+# Find all unique run_ids from both files
+all_run_ids = set()
+if hist_df_3 is not None:
+    all_run_ids.update(hist_df_3['run_id'].unique())
+if hist_df_4 is not None:
+    all_run_ids.update(hist_df_4['run_id'].unique())
+
+if not all_run_ids:
+    st.sidebar.write("No history yet. Run Step 3 or 4 to save results.")
+else:
+    # Sort IDs so newest is at the top
+    sorted_run_ids = sorted(list(all_run_ids), reverse=True)
+    
+    st.sidebar.write(f"Found {len(sorted_run_ids)} previous run(s):")
+    
+    # Loop through each run and show its data
+    for run_id in sorted_run_ids:
+        with st.sidebar.expander(f"**{run_id}**"):
+            
+            # Show Step 3 Data for this run_id
+            st.markdown("--- \n #### Step 3: Consolidation")
+            if hist_df_3 is not None and run_id in hist_df_3['run_id'].values:
+                run_3_data = hist_df_3[hist_df_3['run_id'] == run_id]
+                st.dataframe(run_3_data)
+            else:
+                st.write("No Step 3 data for this run.")
+                
+            # Show Step 4 Data for this run_id
+            st.markdown("--- \n #### Step 4: Mapping")
+            if hist_df_4 is not None and run_id in hist_df_4['run_id'].values:
+                run_4_data = hist_df_4[hist_df_4['run_id'] == run_id]
+                st.dataframe(run_4_data)
+            else:
+                st.write("No Step 4 data for this run.")
+
+# Add a button to clear all history
+if st.sidebar.button("Clear All History", type="secondary"):
+    if os.path.exists(HISTORY_FILE_STEP_3):
+        os.remove(HISTORY_FILE_STEP_3)
+    if os.path.exists(HISTORY_FILE_STEP_4):
+        os.remove(HISTORY_FILE_STEP_4)
+    st.rerun()
+
+
+# -----------------------------------------------------------------
 # --- Step 1: Upload Feedback CSV ---
-st.subheader("📂 Step 1: Upload Feedback CSV")
+# -----------------------------------------------------------------
+st.header("📂 Step 1: Upload Feedback CSV")
 uploaded_file = st.file_uploader("Upload your feedback CSV file", type=["csv", "xlsx"])
 
 if uploaded_file:
@@ -46,8 +151,10 @@ else:
     st.info("Please upload a feedback CSV/XLSX to begin.")
     st.stop()
 
-# --- Step 2: Fetch Jira Issues via JQL (credentials read from .env inside jira_connector) ---
-st.subheader("📡 Step 2: Fetch Jira Issues")
+# -----------------------------------------------------------------
+# --- Step 2: Fetch Jira Issues ---
+# -----------------------------------------------------------------
+st.header("📡 Step 2: Fetch Jira Issues")
 
 col1, col2, col3 = st.columns(3)
 project = col1.text_input("Project Key (optional)", value="SDK")
@@ -81,7 +188,8 @@ if st.button("Fetch Jira Issues"):
     if not jql_to_run:
         st.error("Please enter a JQL query to fetch issues.")
     else:
-        with st.spinner("Fetching Jira issues (credentials from .env)..."):
+        # We use a spinner but the function is cached in jira_connector.py
+        with st.spinner("Fetching Jira issues (will use cache if JQL is unchanged)..."):
             try:
                 jira_df = fetch_jira_issues(jql_to_run)
                 if jira_df is None or jira_df.empty:
@@ -96,7 +204,9 @@ if st.button("Fetch Jira Issues"):
                 st.error(f"Error fetching Jira issues: {e}")
 
 
+# -----------------------------------------------------------------
 # 🧩 Step 3: Classify and Cluster Feedback
+# -----------------------------------------------------------------
 st.header("🧩 Step 3: Classify and Cluster Feedback")
 
 selected_columns = st.multiselect(
@@ -108,29 +218,29 @@ selected_columns = st.multiselect(
 if st.button("Generate Feedback Consolidation Report", type="primary"):
     if selected_columns:
         try:
-            # --- THIS IS THE NEW HYBRID FLOW ---
-
+            # --- THIS IS THE HYBRID FLOW ---
+            
             # Combine selected columns into a single text field
             feedback_df["combined_text"] = feedback_df[selected_columns] \
                 .astype(str).apply(lambda row: " ".join([v for v in row if v and v.lower() != "nan"]), axis=1)
 
-            # 1. Use mapper.py to get semantic groups
-            with st.spinner("Step 1/2: Finding semantic clusters using ML..."):
+            # 1. Use mapper.py to get semantic groups (cached)
+            with st.spinner("Step 1/2: Finding semantic clusters (using cache)..."):
                 feedback_groups = get_semantic_clusters(feedback_df, "combined_text")
                 if not feedback_groups:
                     st.error("Clustering failed to produce any groups.")
                     st.stop()
 
-            # 2. Use classifier.py to summarize those groups with Gemini
-            with st.spinner(f"Step 2/2: Using Gemini to summarize {len(feedback_groups)} clusters..."):
+            # 2. Use classifier.py to summarize those groups with Gemini (cached)
+            with st.spinner(f"Step 2/2: Using Gemini to summarize {len(feedback_groups)} clusters (using cache)..."):
                 clustered_df = summarize_clusters(feedback_groups)
             
-            # --- END OF NEW FLOW ---
+            # --- END OF FLOW ---
 
             st.success("✅ Feedback Consolidation Complete")
 
             if not clustered_df.empty:
-                st.subheader("🧠 Feedback Clusters Summary")
+                st.subheader("🧠 Feedback Clusters Summary (Current Run)")
 
                 # Save the file for Step 4
                 clustered_df.to_csv("feedback_consolidation.csv", index=False)
@@ -145,6 +255,11 @@ if st.button("Generate Feedback Consolidation Report", type="primary"):
 
                 # Download as CSV
                 download_button(clustered_df, "⬇️ Download Consolidated Feedback (CSV)", "feedback_consolidation.csv")
+                
+                # --- ADD TO HISTORY ---
+                save_run_data(clustered_df, HISTORY_FILE_STEP_3, st.session_state.run_id)
+                st.toast(f"Saved results to history! Sidebar will update on next refresh.")
+                # --- st.rerun() was REMOVED from here ---
 
             else:
                 st.warning("No clusters generated. Check if selected columns contain meaningful text.")
@@ -155,8 +270,10 @@ if st.button("Generate Feedback Consolidation Report", type="primary"):
         st.warning("Please select at least one column to classify.")
 
 
+# -----------------------------------------------------------------
 # --- Step 4: Map Feedback → Jira Dealblockers (clustered) ---
-st.subheader("🔗 Step 4: Map Consolidated Feedback to Dealblockers")
+# -----------------------------------------------------------------
+st.header("🔗 Step 4: Map Consolidated Feedback to Dealblockers")
 
 st.info("This step reads the saved files from Step 2 and 3 and maps them using both explicit keys and semantic search.")
 
@@ -174,15 +291,16 @@ if st.button("Run Mapping with Dealblockers"):
         st.error("Jira dealblockers CSV not found. Run Step 2 (Fetch Jira Issues) first.")
         st.stop()
 
-    with st.spinner("Mapping consolidated feedback clusters to Jira dealblockers..."):
+    # The mapping function is cached in mapper.py
+    with st.spinner("Mapping consolidated feedback clusters to Jira dealblockers (using cache)..."):
         try:
             mapped_df = map_feedback_to_dealblockers(feedback_consolidation, jira_dealblockers) 
             if mapped_df is None or mapped_df.empty:
                 st.warning("No mappings were found.")
             else:
                 st.success("✅ Mapping complete")
+                st.subheader("🗺️ Mapped Results (Current Run)")
 
-                # --- MODIFIED ---
                 # Make a copy for display
                 mapped_df_display = mapped_df.copy()
                 
@@ -192,12 +310,16 @@ if st.button("Run Mapping with Dealblockers"):
                         lambda x: str(x)[:250] + "..." if len(str(x)) > 250 else str(x)
                     )
                 
-                # Display the truncated dataframe
                 st.dataframe(mapped_df_display.head(100), use_container_width=True)
-                # --- END MODIFIED ---
 
                 # Save the full (un-truncated) dataframe to CSV
                 mapped_df.to_csv("mapped_feedback_dealblockers.csv", index=False)
                 download_button(mapped_df, "⬇️ Download Mapped Feedback → Dealblockers CSV", "mapped_feedback_dealblockers.csv")
+                
+                # --- ADD TO HISTORY ---
+                save_run_data(mapped_df, HISTORY_FILE_STEP_4, st.session_state.run_id)
+                st.toast(f"Saved mapping results to history! Sidebar will update on next refresh.")
+                # --- st.rerun() was REMOVED from here ---
+
         except Exception as e:
             st.error(f"Error mapping feedback and Jira issues: {e}")

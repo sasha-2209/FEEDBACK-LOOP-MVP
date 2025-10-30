@@ -5,26 +5,20 @@ import time
 import pandas as pd
 from tqdm import tqdm
 from dotenv import load_dotenv
+import streamlit as st  # <-- ADD THIS IMPORT
 
 # Gemini client
 import google.generativeai as genai
-# --- We have removed the HttpOptions import ---
 
 load_dotenv()
 
-# --- REVERTED CONFIGURE ---
-# We are back to the simple configure call
-# This may cause 404 errors again
+# We are using the simplest configure call
 genai.configure(
     api_key=os.getenv("GOOGLE_API_KEY")
 ) 
 
-# --- REVERTED MODEL NAME ---
-# Try the model name with the "models/" prefix
-# as this was required by older library versions
+# And we are using the EXACT model name from your script's output
 MODEL = "models/gemini-flash-latest"
-
-# ... (rest of the file is unchanged) ...
 
 
 # System prompt: instruct model to SUMMARIZE a group of texts
@@ -46,17 +40,14 @@ Return ONLY the single JSON object, nothing else.
 """
 
 def get_summary_for_group(texts, model_name=MODEL, max_retries=2, sleep_between_retries=2.0):
-    """
-    Calls Gemini with the summary prompt for a single group of texts.
-    """
+    # ... (this function is unchanged) ...
+    
     # Format the texts as a bulleted list for the prompt
     prompt_items = "\n".join([f"- \"{t.replace('"',"'").strip()}\"" for t in texts])
     
     batch_prompt = GEMINI_SUMMARY_PROMPT.format(feedback_items_list=prompt_items)
 
-    # Initialize raw to None to prevent UnboundLocalError
     raw = None 
-
     for attempt in range(max_retries + 1):
         try:
             model = genai.GenerativeModel(model_name=model_name)
@@ -64,7 +55,6 @@ def get_summary_for_group(texts, model_name=MODEL, max_retries=2, sleep_between_
             
             raw = resp.text if hasattr(resp, "text") else getattr(resp.parts[0], "text", str(resp.parts))
             
-            # Try to find first '{' and last '}'
             start = raw.find("{")
             end = raw.rfind("}") + 1
             if start != -1 and end != -1:
@@ -77,12 +67,10 @@ def get_summary_for_group(texts, model_name=MODEL, max_retries=2, sleep_between_
         
         except Exception as e:
             last_err = e
-            # Now 'raw' will be None if the API call failed, or the raw text if parsing failed
             print(f"Error parsing group (attempt {attempt+1}): {e}\nRaw output: {raw}")
             time.sleep(sleep_between_retries * (1 + attempt))
             continue
             
-    # If we reach here, return an error-filled fallback
     return {
         "cluster_label": "Error: Failed to Summarize",
         "category": "Other",
@@ -92,6 +80,11 @@ def get_summary_for_group(texts, model_name=MODEL, max_retries=2, sleep_between_
     }
 
 # Main public function used by app.py
+# --- THIS IS THE FIX ---
+# Cache the entire summarization process. If the cluster_groups
+# dictionary is the same, it will return the saved DataFrame
+# instead of calling the Gemini API.
+@st.cache_data
 def summarize_clusters(cluster_groups):
     """
     Receives a dict of {cluster_id: [texts]} from the mapper.
@@ -103,7 +96,6 @@ def summarize_clusters(cluster_groups):
 
     agg_rows = []
     
-    # Use tqdm for a progress bar in the terminal/console
     for cluster_id, texts in tqdm(cluster_groups.items(), desc="Summarizing clusters with Gemini"):
         if not texts:
             continue
@@ -113,9 +105,8 @@ def summarize_clusters(cluster_groups):
         
         # Combine with cluster data
         summary["request_count"] = len(texts)
-        summary["feedback_text"] = " | ".join(texts) # Join original texts for reference
+        summary["feedback_text"] = " | ".join(texts) 
         
-        # Ensure all keys exist
         summary.setdefault("cluster_label", "Untitled Cluster")
         summary.setdefault("category", "Other")
         summary.setdefault("priority_score", 1)
@@ -131,12 +122,10 @@ def summarize_clusters(cluster_groups):
         "cluster_label", "category", "priority_score", "request_count", 
         "reasoning", "issue_keys", "feedback_text"
     ]
-    # Filter to only columns that exist, in the right order
     final_cols = [c for c in cols if c in consolidated_df.columns]
     
     consolidated_df = consolidated_df[final_cols] 
 
-    # Sort by priority_score desc then request_count desc
     consolidated_df = consolidated_df.sort_values(
         by=["priority_score", "request_count"], 
         ascending=[False, False]

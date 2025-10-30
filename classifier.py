@@ -8,16 +8,24 @@ from dotenv import load_dotenv
 
 # Gemini client
 import google.generativeai as genai
+# --- We have removed the HttpOptions import ---
 
 load_dotenv()
-# The user mentioned their key is GEMINI_API_KEY, but the .env loader
-# looks for GOOGLE_API_KEY as written. We'll trust the code.
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY")) 
 
-# --- THIS IS THE FIX ---
-# Reverting to the model name from your ORIGINAL uploaded file.
-MODEL = "models/gemini-2.5-pro"
-# ---------------------
+# --- REVERTED CONFIGURE ---
+# We are back to the simple configure call
+# This may cause 404 errors again
+genai.configure(
+    api_key=os.getenv("GOOGLE_API_KEY")
+) 
+
+# --- REVERTED MODEL NAME ---
+# Try the model name with the "models/" prefix
+# as this was required by older library versions
+MODEL = "models/gemini-flash-latest"
+
+# ... (rest of the file is unchanged) ...
+
 
 # System prompt: instruct model to SUMMARIZE a group of texts
 GEMINI_SUMMARY_PROMPT = """
@@ -125,7 +133,8 @@ def summarize_clusters(cluster_groups):
     ]
     # Filter to only columns that exist, in the right order
     final_cols = [c for c in cols if c in consolidated_df.columns]
-    consolidATED_df = consolidated_df[final_cols]
+    
+    consolidated_df = consolidated_df[final_cols] 
 
     # Sort by priority_score desc then request_count desc
     consolidated_df = consolidated_df.sort_values(

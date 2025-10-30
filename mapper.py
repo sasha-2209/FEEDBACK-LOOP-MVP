@@ -126,15 +126,20 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
             if key in jira_key_set:
                 jira_row = jira_df[jira_df['Issue Key'] == key].iloc[0]
                 
+                # --- MODIFIED ---
+                # Added 'original_feedback_texts' and 'extracted_feedback_keys'
                 all_mappings.append({
                     "cluster_label": fb_row['cluster_label'],
                     "feedback_reasoning": fb_row['reasoning'],
                     "request_count": fb_row['request_count'],
+                    "original_feedback_texts": fb_row['feedback_text'],
+                    "extracted_feedback_keys": fb_row['issue_keys'],
                     "mapped_issue_key": jira_row['Issue Key'],
                     "mapped_issue_summary": jira_row['Summary'],
                     "match_type": "Explicit Key",
                     "match_score": 1.0
                 })
+                # --- END MODIFIED ---
                 explicitly_matched = True
 
         if not explicitly_matched:
@@ -154,30 +159,41 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
             # Find the best match for each feedback item
             for i, fb_row in enumerate(unmatched_df.itertuples()):
                 
-                # --- THIS IS THE FIX ---
-                # .argmax() returns a tensor, so we add .item() to convert it to a Python integer
                 best_match_idx = cos_scores[i].argmax().item()
-                best_score = cos_scores[i][best_match_idx].item() # .item() was already here, which is good
-                # -----------------------
+                best_score = cos_scores[i][best_match_idx].item()
                 
                 if best_score >= SIMILARITY_THRESHOLD:
-                    # Now 'best_match_idx' is an integer, so .iloc will work
                     jira_row = jira_df.iloc[best_match_idx]
                     
+                    # --- MODIFIED ---
+                    # Added 'original_feedback_texts' and 'extracted_feedback_keys'
                     all_mappings.append({
                         "cluster_label": fb_row.cluster_label,
                         "feedback_reasoning": fb_row.reasoning,
                         "request_count": fb_row.request_count,
+                        "original_feedback_texts": fb_row.feedback_text,
+                        "extracted_feedback_keys": fb_row.issue_keys,
                         "mapped_issue_key": jira_row['Issue Key'],
                         "mapped_issue_summary": jira_row['Summary'],
                         "match_type": "Semantic Match",
                         "match_score": best_score
                     })
+                    # --- END MODIFIED ---
 
     # --- Finalize ---
     if not all_mappings:
         return pd.DataFrame()
         
     final_df = pd.DataFrame(all_mappings)
+    
+    # Re-order columns to be more logical
+    final_cols = [
+        "cluster_label", "feedback_reasoning", "request_count",
+        "mapped_issue_key", "mapped_issue_summary", "match_type", "match_score",
+        "original_feedback_texts", "extracted_feedback_keys"
+    ]
+    # Filter to only columns that exist
+    final_df = final_df[[c for c in final_cols if c in final_df.columns]]
+    
     final_df = final_df.sort_values(by="match_score", ascending=False).reset_index(drop=True)
     return final_df

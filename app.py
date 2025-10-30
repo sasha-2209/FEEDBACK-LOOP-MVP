@@ -6,8 +6,7 @@ from dotenv import load_dotenv
 # --- CORRECTED IMPORTS ---
 # We import the cluster-finder from mapper and the group-summarizer from classifier
 from classifier import summarize_clusters
-# ✅ Import both functions from mapper
-from mapper import get_semantic_clusters, map_feedback_to_dealblockers 
+from mapper import get_semantic_clusters, map_feedback_to_dealblockers
 # ---
 from jira_connector import fetch_jira_issues
 
@@ -117,7 +116,6 @@ if st.button("Generate Feedback Consolidation Report", type="primary"):
 
             # 1. Use mapper.py to get semantic groups
             with st.spinner("Step 1/2: Finding semantic clusters using ML..."):
-                # This returns a dictionary of groups: {1: [text_a, text_b], 2: [text_c]}
                 feedback_groups = get_semantic_clusters(feedback_df, "combined_text")
                 if not feedback_groups:
                     st.error("Clustering failed to produce any groups.")
@@ -140,7 +138,7 @@ if st.button("Generate Feedback Consolidation Report", type="primary"):
                 # Make table look readable in Streamlit
                 clustered_df_display = clustered_df.copy()
                 clustered_df_display["feedback_text"] = clustered_df_display["feedback_text"].apply(
-                    lambda x: x[:250] + "..." if len(x) > 250 else x
+                    lambda x: str(x)[:250] + "..." if len(str(x)) > 250 else str(x)
                 )
 
                 st.dataframe(clustered_df_display, use_container_width=True)
@@ -162,9 +160,6 @@ st.subheader("🔗 Step 4: Map Consolidated Feedback to Dealblockers")
 
 st.info("This step reads the saved files from Step 2 and 3 and maps them using both explicit keys and semantic search.")
 
-# ---
-# ✅ NOTE: This block is now UNCOMMENTED and will run.
-# ---
 if st.button("Run Mapping with Dealblockers"):
     # ensure files exist
     try:
@@ -181,14 +176,27 @@ if st.button("Run Mapping with Dealblockers"):
 
     with st.spinner("Mapping consolidated feedback clusters to Jira dealblockers..."):
         try:
-            # map_feedback_to_dealblockers in mapper.py expects the consolidated clusters and jira df
-            # ✅ This function now exists!
             mapped_df = map_feedback_to_dealblockers(feedback_consolidation, jira_dealblockers) 
             if mapped_df is None or mapped_df.empty:
                 st.warning("No mappings were found.")
             else:
                 st.success("✅ Mapping complete")
-                st.dataframe(mapped_df.head(100), use_container_width=True)
+
+                # --- MODIFIED ---
+                # Make a copy for display
+                mapped_df_display = mapped_df.copy()
+                
+                # Truncate the long feedback text column for better readability in Streamlit
+                if "original_feedback_texts" in mapped_df_display.columns:
+                    mapped_df_display["original_feedback_texts"] = mapped_df_display["original_feedback_texts"].apply(
+                        lambda x: str(x)[:250] + "..." if len(str(x)) > 250 else str(x)
+                    )
+                
+                # Display the truncated dataframe
+                st.dataframe(mapped_df_display.head(100), use_container_width=True)
+                # --- END MODIFIED ---
+
+                # Save the full (un-truncated) dataframe to CSV
                 mapped_df.to_csv("mapped_feedback_dealblockers.csv", index=False)
                 download_button(mapped_df, "⬇️ Download Mapped Feedback → Dealblockers CSV", "mapped_feedback_dealblockers.csv")
         except Exception as e:

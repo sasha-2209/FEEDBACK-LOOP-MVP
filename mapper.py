@@ -1,59 +1,83 @@
-from fuzzywuzzy import fuzz
+import re
+import numpy as np
 import pandas as pd
+from collections import defaultdict
+from sentence_transformers import SentenceTransformer
+from sklearn.cluster import AgglomerativeClustering
 
-def map_feedback_to_dealblockers(feedback_df, jira_df, threshold=60):
-    feedback_matches = []
-    for _, fb_row in feedback_df.iterrows():
-        best_match = None
-        best_score = 0
+# -------------------------
+# Config / tuning params
+# -------------------------
+EMBED_MODEL = "all-MiniLM-L6-v2"
+# This is the most important setting to tune.
+# Lower (e.g., 0.3) = more, smaller, tighter clusters
+# Higher (e.g., 0.45) = fewer, larger, looser clusters
+DISTANCE_THRESHOLD = 0.35
 
-        for _, jira_row in jira_df.iterrows():
-            score = fuzz.token_set_ratio(fb_row["feedback_text"], jira_row["Summary"])
-            if score > best_score:
-                best_score = score
-                best_match = jira_row
+# -------------------------
+# Utilities
+# -------------------------
+def clean_text(t):
+    if not isinstance(t, str):
+        return ""
+    t = t.lower()
+    t = re.sub(r'[^a-z0-9\s\+\-#_.]', ' ', t)   # allow + - # . _ as they appear in names
+    t = re.sub(r'\s+', ' ', t).strip()
+    return t
 
-        if best_match is not None and best_score >= threshold:
-            feedback_matches.append({
-                "feedback_text": fb_row["feedback_text"],
-                "category": fb_row.get("category", ""),
-                "cluster_label": fb_row.get("cluster_label", ""),
-                "request_count": fb_row.get("request_count", 1),
-                "issue_keys": fb_row.get("issue_keys", ""),
-                "priority_score": fb_row.get("priority_score", ""),
-                "reasoning": fb_row.get("reasoning", ""),
-                "matched_issue_key": best_match["Issue Key"],
-                "matched_summary": best_match["Summary"],
-                "match_score": best_score
-            })
+# -------------------------
+# Main function (called by app.py)
+# -------------------------
+def get_semantic_clusters(feedback_df, text_column):
+    """
+    Uses sentence embeddings and AgglomerativeClustering to group
+    feedback items by semantic similarity.
 
-    feedback_table = pd.DataFrame(feedback_matches)
+    Returns:
+      A dict mapping {cluster_id: [list_of_original_texts]}
+    """
 
-    # Create Dealblocker Summary
-    dealblocker_summary = []
-    for _, row in jira_df.iterrows():
-        urgency_score = 3
-        reason = "Normal priority"
-        desc = str(row["Description"]).lower()
+    if feedback_df is None or feedback_df.empty:
+        raise ValueError("Feedback DataFrame is empty.")
 
-        if any(word in desc for word in ["urgent", "critical", "blocker"]):
-            urgency_score = 5
-            reason = "Contains urgency markers (urgent/critical/blocker)"
-        elif "delay" in desc:
-            urgency_score = 4
-            reason = "Mentions delay or time sensitivity"
+    if text_column not in feedback_df.columns:
+        raise ValueError(f"Selected column '{text_column}' not found in feedback file.")
 
-        dealblocker_summary.append({
-            "Issue Key": row["Issue Key"],
-            "Summary": row["Summary"],
-            "Description": row["Description"],
-            "Urgency Score": urgency_score,
-            "Urgency Reason": reason,
-            "ARR Value": row["ARR Value"],
-            "Deal Size": row["Deal Size"],
-            "Timeline Urgency": row["Timeline Urgency"]
-        })
+    # Prepare texts
+    original_texts = feedback_df[text_column].astype(str).fillna("").tolist()
+    cleaned_texts = [clean_text(t) for t in original_texts]
 
-    dealblocker_table = pd.DataFrame(dealblocker_summary)
+    if not any(cleaned_texts):
+        raise ValueError("No textual feedback found in the selected column.")
 
-    return feedback_table, dealblocker_table
+    # Step 1: Get embeddings
+    model = SentenceTransformer(EMBED_MODEL)
+    # Use cleaned texts for embedding, but keep original texts for output
+    embeddings = model.encode(cleaned_texts, normalize_embeddings=True, show_progress_bar=True)
+
+    # Step 2: Perform clustering
+    # If dataset small, create trivial single cluster fallback
+    if len(embeddings) == 1:
+        initial_labels = np.array([0])
+    else:
+        clustering = AgglomerativeClustering(
+            n_clusters=None,
+            distance_threshold=DISTANCE_THRESHOLD,
+            metric="cosine",
+            linkage="average"
+        )
+        initial_labels = clustering.fit_predict(embeddings)
+
+    # Step 3: Build the groups
+    clusters = defaultdict(list)
+    for i, lbl in enumerate(initial_labels):
+        clusters[lbl].append(original_texts[i])
+
+    # Filter out empty strings that may have been clustered
+    final_clusters = {}
+    for cid, texts in clusters.items():
+        valid_texts = [t for t in texts if t and t.strip()]
+        if valid_texts:
+            final_clusters[cid] = valid_texts
+            
+    return final_clusters

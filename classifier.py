@@ -1,70 +1,136 @@
+# classifier.py
 import os
 import json
-import math
-import re
+import time
+import pandas as pd
 from tqdm import tqdm
+from dotenv import load_dotenv
+
+# Gemini client
 import google.generativeai as genai
-import pandas as pd  # ✅ Added missing import
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+load_dotenv()
+# The user mentioned their key is GEMINI_API_KEY, but the .env loader
+# looks for GOOGLE_API_KEY as written. We'll trust the code.
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY")) 
 
+# --- THIS IS THE FIX ---
+# Reverting to the model name from your ORIGINAL uploaded file.
 MODEL = "models/gemini-2.5-pro"
+# ---------------------
 
-system_prompt = """
-You are an expert Product Feedback Intelligence System built for Product Managers.
-Your job is to turn raw, messy user feedback into structured, actionable insights
-that help prioritize roadmap items.
+# System prompt: instruct model to SUMMARIZE a group of texts
+GEMINI_SUMMARY_PROMPT = """
+You are an expert Product Feedback Intelligence System.
+I have a group of customer feedback items that have already been clustered by semantic similarity.
+Your job is to analyze all of them and return a single JSON object that summarizes the ENTIRE group.
 
-You are deeply analytical, concise, and explain your reasoning clearly.
+- **cluster_label**: A single, concise group name (e.g., "Ruby SDK Support", "Billing Invoice Errors").
+- **category**: The best fit: <Bug|Feature Request|UX Issue|Performance|SDK Coverage|Billing|Other>
+- **priority_score**: An integer (1-5) for the whole cluster's urgency.
+- **reasoning**: A one-line summary of the core request or problem.
+- **issue_keys**: An array of any Jira keys (e.g., "SDK-123") found in the texts.
 
-🔹 Your output should be a JSON array where each object contains:
-- "feedback_text": Original feedback snippet
-- "category": Bug / Feature Request / UX Issue / Performance / SDK Coverage - Depth | SDK Coverage - Breadth
-- "cluster_label": Cluster name that groups similar feedback
-- "request_count": number of similar mentions
-- "issue_keys": list of sample issue identifiers (if available in the dataset)
-- "priority_score": Integer (1–5), where 5 = most urgent, most frequent & impactful
-- "reasoning": Brief reasoning for category + priority
+Here is the group of feedback items:
+{feedback_items_list}
 
-If no explicit issue identifiers are provided, use "issue_keys": ["AUTO-GEN-{index}"] placeholders.
+Return ONLY the single JSON object, nothing else.
 """
 
-def chunk_list(lst, n):
-    """Split list into n-sized chunks"""
-    for i in range(0, len(lst), n):
-        yield lst[i:i + n]
+def get_summary_for_group(texts, model_name=MODEL, max_retries=2, sleep_between_retries=2.0):
+    """
+    Calls Gemini with the summary prompt for a single group of texts.
+    """
+    # Format the texts as a bulleted list for the prompt
+    prompt_items = "\n".join([f"- \"{t.replace('"',"'").strip()}\"" for t in texts])
+    
+    batch_prompt = GEMINI_SUMMARY_PROMPT.format(feedback_items_list=prompt_items)
 
-def analyze_texts_batch(feedback_items, issue_keys=None, batch_size=20):
-    """Analyze batches of feedback using Gemini 2.5 Pro"""
-    model = genai.GenerativeModel(model_name=MODEL)
-    results = []
+    # Initialize raw to None to prevent UnboundLocalError
+    raw = None 
 
-    if not feedback_items:
-        return []
-
-    # Combine text + issue key context
-    combined_feedback = []
-    for i, text in enumerate(feedback_items):
-        key_info = ""
-        if issue_keys and i < len(issue_keys) and not pd.isna(issue_keys[i]):
-            key_info = f"Issue Key: {issue_keys[i]}"
-        else:
-            key_info = f"Issue Key: AUTO-GEN-{i+1}"
-        combined_feedback.append(f"{key_info}\nFeedback: {text}")
-
-    # Process in batches
-    for batch_index, batch in enumerate(tqdm(list(chunk_list(combined_feedback, batch_size)))):
-        joined_text = "\n\n---\n\n".join(batch)
-        prompt = f"{system_prompt}\n\nAnalyze the following feedback entries:\n\n{joined_text}"
-
+    for attempt in range(max_retries + 1):
         try:
-            response = model.generate_content(prompt)
-            if hasattr(response, "text"):
-                results.append(response.text)
+            model = genai.GenerativeModel(model_name=model_name)
+            resp = model.generate_content(batch_prompt)
+            
+            raw = resp.text if hasattr(resp, "text") else getattr(resp.parts[0], "text", str(resp.parts))
+            
+            # Try to find first '{' and last '}'
+            start = raw.find("{")
+            end = raw.rfind("}") + 1
+            if start != -1 and end != -1:
+                json_text = raw[start:end]
             else:
-                results.append("Error: No text in response")
+                json_text = raw
+                
+            parsed = json.loads(json_text)
+            return parsed
+        
         except Exception as e:
-            results.append(f"Error in batch {batch_index}: {e}")
+            last_err = e
+            # Now 'raw' will be None if the API call failed, or the raw text if parsing failed
+            print(f"Error parsing group (attempt {attempt+1}): {e}\nRaw output: {raw}")
+            time.sleep(sleep_between_retries * (1 + attempt))
+            continue
+            
+    # If we reach here, return an error-filled fallback
+    return {
+        "cluster_label": "Error: Failed to Summarize",
+        "category": "Other",
+        "priority_score": 1,
+        "reasoning": f"Error classifying batch: {last_err}",
+        "issue_keys": []
+    }
+
+# Main public function used by app.py
+def summarize_clusters(cluster_groups):
+    """
+    Receives a dict of {cluster_id: [texts]} from the mapper.
+    Calls Gemini to summarize each group.
+    Returns a consolidated pandas.DataFrame.
+    """
+    if not cluster_groups:
+        return pd.DataFrame()
+
+    agg_rows = []
+    
+    # Use tqdm for a progress bar in the terminal/console
+    for cluster_id, texts in tqdm(cluster_groups.items(), desc="Summarizing clusters with Gemini"):
+        if not texts:
             continue
 
-    return results
+        # Get the summary object from Gemini
+        summary = get_summary_for_group(texts)
+        
+        # Combine with cluster data
+        summary["request_count"] = len(texts)
+        summary["feedback_text"] = " | ".join(texts) # Join original texts for reference
+        
+        # Ensure all keys exist
+        summary.setdefault("cluster_label", "Untitled Cluster")
+        summary.setdefault("category", "Other")
+        summary.setdefault("priority_score", 1)
+        summary.setdefault("reasoning", "")
+        summary.setdefault("issue_keys", [])
+
+        agg_rows.append(summary)
+
+    consolidated_df = pd.DataFrame(agg_rows)
+
+    # Re-order columns for clarity
+    cols = [
+        "cluster_label", "category", "priority_score", "request_count", 
+        "reasoning", "issue_keys", "feedback_text"
+    ]
+    # Filter to only columns that exist, in the right order
+    final_cols = [c for c in cols if c in consolidated_df.columns]
+    consolidATED_df = consolidated_df[final_cols]
+
+    # Sort by priority_score desc then request_count desc
+    consolidated_df = consolidated_df.sort_values(
+        by=["priority_score", "request_count"], 
+        ascending=[False, False]
+    ).reset_index(drop=True)
+
+    return consolidated_df

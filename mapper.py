@@ -7,21 +7,28 @@ from collections import defaultdict
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import pytorch_cos_sim
 from sklearn.cluster import AgglomerativeClustering
+import streamlit as st  # <-- ADD THIS IMPORT
 
 # -------------------------
 # Config / tuning params
 # -------------------------
-EMBED_MODEL = "local_model"
-EMBED_MODEL_PATH = os.path.abspath(EMBED_MODEL)
 
-# Load the model ONCE when the script is imported.
-try:
-    MODEL = SentenceTransformer(EMBED_MODEL_PATH)
-except Exception as e:
-    print(f"!!!!!!!!!!!!!! FAILED TO LOAD MODEL !!!!!!!!!!!!!!")
-    print(f"Error: {e}")
-    print(f"Please check that the 'local_model' folder is not empty and contains all model files.")
-    raise e
+# --- THIS IS THE FIX ---
+# We cache the model load, so it only runs ONCE.
+@st.cache_resource
+def load_embedding_model():
+    """Loads the SentenceTransformer model into Streamlit's cache."""
+    EMBED_MODEL = "local_model"
+    EMBED_MODEL_PATH = os.path.abspath(EMBED_MODEL)
+    try:
+        model = SentenceTransformer(EMBED_MODEL_PATH)
+        return model
+    except Exception as e:
+        print(f"!!!!!!!!!!!!!! FAILED TO LOAD MODEL !!!!!!!!!!!!!!")
+        print(f"Error: {e}")
+        st.error(f"Error loading embedding model from {EMBED_MODEL_PATH}. Check folder exists.")
+        return None
+# ---------------------
 
 DISTANCE_THRESHOLD = 0.35
 SIMILARITY_THRESHOLD = 0.60
@@ -30,16 +37,20 @@ SIMILARITY_THRESHOLD = 0.60
 # Utilities
 # -------------------------
 def clean_text(t):
+    # ... (function is unchanged) ...
     if not isinstance(t, str):
         return ""
     t = t.lower()
-    t = re.sub(r'[^a-z0-9\s\+\-#_.]', ' ', t)   # allow + - # . _ as they appear in names
+    t = re.sub(r'[^a-z0-9\s\+\-#_.]', ' ', t)
     t = re.sub(r'\s+', ' ', t).strip()
     return t
 
 # -------------------------
 # Step 3 Main function (called by app.py)
 # -------------------------
+# We cache the clustering result. If the input df is the same,
+# it will return the cached groups instantly.
+@st.cache_data
 def get_semantic_clusters(feedback_df, text_column):
     """
     Uses sentence embeddings and AgglomerativeClustering to group
@@ -48,6 +59,10 @@ def get_semantic_clusters(feedback_df, text_column):
     Returns:
       A dict mapping {cluster_id: [list_of_original_texts]}
     """
+    MODEL = load_embedding_model() # Get the cached model
+    if MODEL is None:
+        st.error("Model not loaded. Halting clustering.")
+        st.stop()
 
     if feedback_df is None or feedback_df.empty:
         raise ValueError("Feedback DataFrame is empty.")
@@ -95,13 +110,18 @@ def get_semantic_clusters(feedback_df, text_column):
 # -----------------------------------------------------------------
 # --- FUNCTION FOR STEP 4 ---
 # -----------------------------------------------------------------
+# We also cache the mapping step.
+@st.cache_data
 def map_feedback_to_dealblockers(feedback_df, jira_df):
     """
     Maps consolidated feedback clusters to Jira dealblockers using a
-    hybrid approach:
-    1. Explicit key matching (if feedback contains a Jira key)
-    2. Semantic similarity matching (if no key is found)
+    hybrid approach.
     """
+    MODEL = load_embedding_model() # Get the cached model
+    if MODEL is None:
+        st.error("Model not loaded. Halting mapping.")
+        st.stop()
+        
     if feedback_df.empty or jira_df.empty:
         return pd.DataFrame()
 
@@ -126,8 +146,6 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
             if key in jira_key_set:
                 jira_row = jira_df[jira_df['Issue Key'] == key].iloc[0]
                 
-                # --- MODIFIED ---
-                # Added 'original_feedback_texts' and 'extracted_feedback_keys'
                 all_mappings.append({
                     "cluster_label": fb_row['cluster_label'],
                     "feedback_reasoning": fb_row['reasoning'],
@@ -139,7 +157,6 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
                     "match_type": "Explicit Key",
                     "match_score": 1.0
                 })
-                # --- END MODIFIED ---
                 explicitly_matched = True
 
         if not explicitly_matched:
@@ -165,8 +182,6 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
                 if best_score >= SIMILARITY_THRESHOLD:
                     jira_row = jira_df.iloc[best_match_idx]
                     
-                    # --- MODIFIED ---
-                    # Added 'original_feedback_texts' and 'extracted_feedback_keys'
                     all_mappings.append({
                         "cluster_label": fb_row.cluster_label,
                         "feedback_reasoning": fb_row.reasoning,
@@ -178,7 +193,6 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
                         "match_type": "Semantic Match",
                         "match_score": best_score
                     })
-                    # --- END MODIFIED ---
 
     # --- Finalize ---
     if not all_mappings:
@@ -192,7 +206,6 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
         "mapped_issue_key", "mapped_issue_summary", "match_type", "match_score",
         "original_feedback_texts", "extracted_feedback_keys"
     ]
-    # Filter to only columns that exist
     final_df = final_df[[c for c in final_cols if c in final_df.columns]]
     
     final_df = final_df.sort_values(by="match_score", ascending=False).reset_index(drop=True)

@@ -51,15 +51,12 @@ def clean_text(t):
 # We cache the clustering result. If the input df is the same,
 # it will return the cached groups instantly.
 @st.cache_data
-def get_semantic_clusters(feedback_df, text_column):
+def get_semantic_clusters(feedback_df, text_column, grouping_context=""):
     """
     Uses sentence embeddings and AgglomerativeClustering to group
     feedback items by semantic similarity.
-
-    Returns:
-      A dict mapping {cluster_id: [list_of_original_texts]}
     """
-    MODEL = load_embedding_model() # Get the cached model
+    MODEL = load_embedding_model() 
     if MODEL is None:
         st.error("Model not loaded. Halting clustering.")
         st.stop()
@@ -72,7 +69,15 @@ def get_semantic_clusters(feedback_df, text_column):
 
     # Prepare texts
     original_texts = feedback_df[text_column].astype(str).fillna("").tolist()
+    
+    # --- 2. ADD THIS LOGIC TO PREPEND CONTEXT ---
     cleaned_texts = [clean_text(t) for t in original_texts]
+    if grouping_context and grouping_context.strip():
+        # If context is provided, prepend it to every item
+        # This will influence the vector math and change the groups
+        clean_context = clean_text(grouping_context)
+        cleaned_texts = [f"Context: {clean_context}. Feedback: {t}" for t in cleaned_texts]
+    # ----------------------------------------------
 
     if not any(cleaned_texts):
         raise ValueError("No textual feedback found in the selected column.")
@@ -81,6 +86,7 @@ def get_semantic_clusters(feedback_df, text_column):
     embeddings = MODEL.encode(cleaned_texts, normalize_embeddings=True, show_progress_bar=True)
 
     # Step 2: Perform clustering
+    # ... (rest of the function is unchanged) ...
     if len(embeddings) == 1:
         initial_labels = np.array([0])
     else:
@@ -95,7 +101,8 @@ def get_semantic_clusters(feedback_df, text_column):
     # Step 3: Build the groups
     clusters = defaultdict(list)
     for i, lbl in enumerate(initial_labels):
-        clusters[lbl].append(original_texts[i])
+        # We still return the ORIGINAL text, not the one with context
+        clusters[lbl].append(original_texts[i]) 
 
     # Filter out empty strings that may have been clustered
     final_clusters = {}

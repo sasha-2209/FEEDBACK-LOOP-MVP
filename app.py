@@ -4,6 +4,7 @@ from io import BytesIO
 from dotenv import load_dotenv
 import os
 from datetime import datetime
+import plotly.express as px  # <-- 1. ADD THIS IMPORT
 
 # --- Imports for app logic ---
 from classifier import summarize_clusters
@@ -31,7 +32,7 @@ def download_button(df, label, filename):
         mime="text/csv",
     )
 
-# --- Utility: Function to SAVE run data (replaces append_to_history) ---
+# --- Utility: Function to SAVE run data ---
 def save_run_data(df, history_file, run_id):
     """
     Saves the dataframe for a specific run_id to the history file.
@@ -65,11 +66,12 @@ if "run_id" not in st.session_state:
     st.session_state.run_id = f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
 # -----------------------------------------------------------------
-# --- NEW: SIDEBAR - RUN HISTORY ---
+# --- SIDEBAR - RUN HISTORY ---
 # -----------------------------------------------------------------
 st.sidebar.title("🕰️ Run History")
 st.sidebar.info(f"Current Run ID: `{st.session_state.run_id}`")
 
+# ... (All the sidebar logic remains exactly the same) ...
 # Load history files if they exist
 hist_df_3 = None
 hist_df_4 = None
@@ -129,11 +131,11 @@ if st.sidebar.button("Clear All History", type="secondary"):
         os.remove(HISTORY_FILE_STEP_4)
     st.rerun()
 
-
 # -----------------------------------------------------------------
 # --- Step 1: Upload Feedback CSV ---
 # -----------------------------------------------------------------
 st.header("📂 Step 1: Upload Feedback CSV")
+# ... (This section is unchanged) ...
 uploaded_file = st.file_uploader("Upload your feedback CSV file", type=["csv", "xlsx"])
 
 if uploaded_file:
@@ -155,7 +157,7 @@ else:
 # --- Step 2: Fetch Jira Issues ---
 # -----------------------------------------------------------------
 st.header("📡 Step 2: Fetch Jira Issues")
-
+# ... (This section is unchanged) ...
 col1, col2, col3 = st.columns(3)
 project = col1.text_input("Project Key (optional)", value="SDK")
 reporter = col2.text_input("Reporter ID (optional)", value="")
@@ -203,7 +205,6 @@ if st.button("Fetch Jira Issues"):
             except Exception as e:
                 st.error(f"Error fetching Jira issues: {e}")
 
-
 # -----------------------------------------------------------------
 # 🧩 Step 3: Classify and Cluster Feedback
 # -----------------------------------------------------------------
@@ -213,6 +214,11 @@ selected_columns = st.multiselect(
     "Select one or more columns containing feedback text for classification:",
     options=feedback_df.columns.tolist(),
     default=[feedback_df.columns[0]] if len(feedback_df.columns) > 0 else [],
+)
+
+user_context = st.text_area(
+    "Please share more context if you want to customise the output (Optional):",
+    placeholder="e.g., 'Focus on mobile performance feedback' or 'Only return feedback relevant to Ruby framework'. This will influence both grouping and labeling."
 )
 
 if st.button("Generate Feedback Consolidation Report", type="primary"):
@@ -259,7 +265,6 @@ if st.button("Generate Feedback Consolidation Report", type="primary"):
                 # --- ADD TO HISTORY ---
                 save_run_data(clustered_df, HISTORY_FILE_STEP_3, st.session_state.run_id)
                 st.toast(f"Saved results to history! Sidebar will update on next refresh.")
-                # --- st.rerun() was REMOVED from here ---
 
             else:
                 st.warning("No clusters generated. Check if selected columns contain meaningful text.")
@@ -269,12 +274,91 @@ if st.button("Generate Feedback Consolidation Report", type="primary"):
     else:
         st.warning("Please select at least one column to classify.")
 
+# --- 2. ADD THIS NEW SECTION for the mindmap ---
+st.subheader("🗺️ Visualize Clusters")
 
+if st.button("Generate Mindmap / Treemap"):
+    try:
+        # Try to read the results from the last Step 3 run
+        clustered_df = pd.read_csv("feedback_consolidation.csv")
+        
+        # Ensure required columns exist
+        if 'category' not in clustered_df.columns or 'cluster_label' not in clustered_df.columns or 'feedback_text' not in clustered_df.columns:
+            st.error("Could not find 'category', 'cluster_label', or 'feedback_text' in the saved data.")
+        else:
+            
+            # --- THIS IS THE NEW LOGIC ---
+            
+            # 1. Create a list for the new, "exploded" data
+            treemap_data = []
+            
+            # 2. Iterate through the aggregated DataFrame
+            for _, row in clustered_df.iterrows():
+                # 3. Split the individual feedback texts
+                try:
+                    feedback_texts = str(row['feedback_text']).split(' | ')
+                except Exception:
+                    feedback_texts = ["Error parsing feedback"]
+                
+                # 4. Create a new row for each individual text
+                for text in feedback_texts:
+                    if text.strip(): # Ensure it's not an empty string
+                        treemap_data.append({
+                            'category': row['category'],
+                            'cluster_label': row['cluster_label'],
+                            'reasoning': row['reasoning'],
+                            'individual_feedback': text.strip(),
+                            'size': 1  # Each individual request has a "size" of 1
+                        })
+
+            # 5. Create the new DataFrame
+            if not treemap_data:
+                st.warning("No individual feedback items to display.")
+                st.stop()
+                
+            treemap_df = pd.DataFrame(treemap_data)
+            
+            # --- END OF NEW LOGIC ---
+
+            st.info("Generating interactive treemap... You can click to zoom. Boxes are sized equally.")
+            
+            fig = px.treemap(
+                treemap_df, # Use the new, exploded DataFrame
+                
+                # 6. Add 'individual_feedback' to the path
+                path=[px.Constant("All Feedback"), 'category', 'cluster_label', 'individual_feedback'],
+                
+                # 7. Set 'values' to the new 'size' column
+                values='size',
+                
+                color='category',
+                
+                # 8. Update hover data to be more useful
+                hover_data={
+                    'reasoning': True, 
+                    'cluster_label': True,
+                    'individual_feedback': True,
+                    'size': False # Hide the "size=1" from the tooltip
+                }
+            )
+            
+            # This makes the tooltip cleaner
+            fig.update_traces(hovertemplate='<b>Cluster:</b> %{customdata[1]}<br><b>Feedback:</b> %{customdata[2]}<br><b>Reasoning:</b> %{customdata[0]}<extra></extra>')
+            
+            fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+            
+            # Display the chart in Streamlit
+            st.plotly_chart(fig, use_container_width=True)
+
+    except FileNotFoundError:
+        st.error("Please run Step 3 'Generate Feedback Consolidation Report' first to create the data.")
+    except Exception as e:
+        st.error(f"An error occurred while generating the treemap: {e}")
 # -----------------------------------------------------------------
 # --- Step 4: Map Feedback → Jira Dealblockers (clustered) ---
 # -----------------------------------------------------------------
 st.header("🔗 Step 4: Map Consolidated Feedback to Dealblockers")
-
+# ... (This section is unchanged) ...
 st.info("This step reads the saved files from Step 2 and 3 and maps them using both explicit keys and semantic search.")
 
 if st.button("Run Mapping with Dealblockers"):
@@ -319,7 +403,6 @@ if st.button("Run Mapping with Dealblockers"):
                 # --- ADD TO HISTORY ---
                 save_run_data(mapped_df, HISTORY_FILE_STEP_4, st.session_state.run_id)
                 st.toast(f"Saved mapping results to history! Sidebar will update on next refresh.")
-                # --- st.rerun() was REMOVED from here ---
 
         except Exception as e:
             st.error(f"Error mapping feedback and Jira issues: {e}")

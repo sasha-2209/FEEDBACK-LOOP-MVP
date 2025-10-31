@@ -5,33 +5,33 @@ import time
 import pandas as pd
 from tqdm import tqdm
 from dotenv import load_dotenv
-import streamlit as st  # <-- ADD THIS IMPORT
+import streamlit as st 
 
 # Gemini client
 import google.generativeai as genai
 
 load_dotenv()
 
-# We are using the simplest configure call
 genai.configure(
     api_key=os.getenv("GOOGLE_API_KEY")
 ) 
 
-# And we are using the EXACT model name from your script's output
 MODEL = "models/gemini-flash-latest"
 
 
-# System prompt: instruct model to SUMMARIZE a group of texts
+# --- 1. MODIFY THE PROMPT ---
+# Added a placeholder {user_context_section}
 GEMINI_SUMMARY_PROMPT = """
 You are an expert Product Feedback Intelligence System.
-I have a group of customer feedback items that have already been clustered by semantic similarity.
-Your job is to analyze all of them and return a single JSON object that summarizes the ENTIRE group.
+
+Your job is to analyze all of the following feedback items and return a single JSON object that summarizes the ENTIRE group.
 
 - **cluster_label**: A single, concise group name (e.g., "Ruby SDK Support", "Billing Invoice Errors").
 - **category**: The best fit: <Bug|Feature Request|UX Issue|Performance|SDK Coverage|Billing|Other>
 - **priority_score**: An integer (1-5) for the whole cluster's urgency.
 - **reasoning**: A one-line summary of the core request or problem.
 - **issue_keys**: An array of any Jira keys (e.g., "SDK-123") found in the texts.
+In addition to the above, also keep the following in mind when analyzing the group: {user_context_section}
 
 Here is the group of feedback items:
 {feedback_items_list}
@@ -39,13 +39,25 @@ Here is the group of feedback items:
 Return ONLY the single JSON object, nothing else.
 """
 
-def get_summary_for_group(texts, model_name=MODEL, max_retries=2, sleep_between_retries=2.0):
-    # ... (this function is unchanged) ...
+# --- 2. MODIFY THIS FUNCTION SIGNATURE ---
+def get_summary_for_group(texts, labeling_context="", model_name=MODEL, max_retries=2, sleep_between_retries=2.0):
+    """
+    Calls Gemini with the summary prompt for a single group of texts.
+    """
     
-    # Format the texts as a bulleted list for the prompt
+    # --- 3. ADD THIS LOGIC to dynamically build the prompt ---
+    if labeling_context and labeling_context.strip():
+        context_section = f"A user has provided this context, please use it to guide your summary: '{labeling_context}'\n"
+    else:
+        context_section = "" # If no context, this part is empty
+        
     prompt_items = "\n".join([f"- \"{t.replace('"',"'").strip()}\"" for t in texts])
     
-    batch_prompt = GEMINI_SUMMARY_PROMPT.format(feedback_items_list=prompt_items)
+    batch_prompt = GEMINI_SUMMARY_PROMPT.format(
+        user_context_section=context_section,
+        feedback_items_list=prompt_items
+    )
+    # --------------------------------------------------------
 
     raw = None 
     for attempt in range(max_retries + 1):
@@ -79,13 +91,9 @@ def get_summary_for_group(texts, model_name=MODEL, max_retries=2, sleep_between_
         "issue_keys": []
     }
 
-# Main public function used by app.py
-# --- THIS IS THE FIX ---
-# Cache the entire summarization process. If the cluster_groups
-# dictionary is the same, it will return the saved DataFrame
-# instead of calling the Gemini API.
+# --- 4. MODIFY THIS FUNCTION SIGNATURE ---
 @st.cache_data
-def summarize_clusters(cluster_groups):
+def summarize_clusters(cluster_groups, labeling_context=""):
     """
     Receives a dict of {cluster_id: [texts]} from the mapper.
     Calls Gemini to summarize each group.
@@ -100,8 +108,8 @@ def summarize_clusters(cluster_groups):
         if not texts:
             continue
 
-        # Get the summary object from Gemini
-        summary = get_summary_for_group(texts)
+        # --- 5. PASS THE CONTEXT DOWN ---
+        summary = get_summary_for_group(texts, labeling_context=labeling_context)
         
         # Combine with cluster data
         summary["request_count"] = len(texts)

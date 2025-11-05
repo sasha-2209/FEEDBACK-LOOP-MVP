@@ -13,3 +13,5 @@ jira
 flask
 fuzzywuzzy[speedup]
 python-Levenshtein
+sqlalchemy
+plotly

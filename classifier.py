@@ -30,7 +30,7 @@ Your job is to analyze all of the following feedback items and return a single J
 - **category**: The best fit: <Bug|Feature Request|UX Issue|Performance|SDK Coverage|Billing|Other>
 - **priority_score**: An integer (1-5) for the whole cluster's urgency.
 - **reasoning**: A one-line summary of the core request or problem.
-- **issue_keys**: An array of any Jira keys (e.g., "SDK-123") found in the texts.
+- **issue_keys**: An array of all Jira keys found in the texts. These keys follow a `[PROJECT]-[NUMBER]` format (e.g., "PRDFBK-4676", "SDK-123"). Systematically extract ALL strings that match this `[ALL_CAPS_LETTERS]-[NUMBERS]` pattern, even if they appear multiple times.
 In addition to the above, also keep the following in mind when analyzing the group: {user_context_section}
 
 Here is the group of feedback items:
@@ -119,7 +119,8 @@ def summarize_clusters(cluster_groups, labeling_context=""):
         summary.setdefault("category", "Other")
         summary.setdefault("priority_score", 1)
         summary.setdefault("reasoning", "")
-        summary.setdefault("issue_keys", [])
+        if summary.get("issue_keys") is None:
+            summary["issue_keys"] = []
 
         agg_rows.append(summary)
 

@@ -1,78 +1,13 @@
 cluster_label,category,priority_score,request_count,reasoning,issue_keys,feedback_text
-Cucumber BDD Framework SDK Coverage,SDK Coverage,5,9,"Users require official SDK integration and observability support for the Cucumber BDD framework, often combined with Playwright (across Java, JavaScript, and TypeScript).",[],PRDFBK-4676 SDK integration with Playwright+Cucumber+Typescript framework | PRDFBK-4009 Playwright cucumber SDK support | PRDFBK-3631 Playwright Cucumber Support: SDK and Accessibility | PRDFBK-3455 Support for Java+playwright+cucumber frameworks on TO | PRDFBK-2895 CucumberJS with Playwright support | PRDFBK-1590 O11y support for Cucumber Java & Selenium | PRDFBK-1498 cucumber-js/playwright sdk support | PRDFBK-1140 Support Java Cucumber O11y | PRDFBK-288 JBehave Cucumber integration
-Espresso/XCUITest Test Observability SDK,Feature Request,5,6,A high volume of requests demands SDK support for enabling Test Observability features for native mobile tests using Espresso (Android) and XCUITest (iOS).,[],PRDFBK-3022 Need support for Test Observability with Espresso/Xcuitest | PRDFBK-2657 Espresso and XCUITest | PRDFBK-2287 Support Espresso/XCUITest Observability | PRDFBK-2252 Espresso and XCUITest support for Test Observability | PRDFBK-906 Espresso/XCUITest Support for Observability | PRDFBK-861 SDK support for XCUIT and Espresso
-SDK Documentation and Onboarding Issues,UX Issue,5,5,"Users consistently report significant difficulty onboarding and integrating the SDK due to inadequate documentation, with specific requests for missing Gradle support.",[],PRDFBK-2665 Gradle Documentation for SDK | PRDFBK-2376 Improve SDK Documentation | PRDFBK-2352 Difficulty in onboarding to SDK | PRDFBK-1244 DIfficulty in integrating the SDK | PRDFBK-173 Difficulty in onboarding to SDK
-Browserstack SDK Python Integration and Certificate Handling,Bug,5,2,The Python SDK integration is currently non-functional and requires the urgent inclusion of cacert support for secure and stable connectivity within the Browserstack SDK.,"['PRDFBK-5977', 'PRDFBK-5468']",PRDFBK-5977 Browserstack Python SDK Integration does not work | PRDFBK-5468 [IRCC] Include cacert via browserstack-sdk
-SDK Test Framework Coverage,Feature Request,4,7,"Customers require SDK support for various testing frameworks, including Testcafe, MSTest, KoTest, and Junit, to integrate the product into their workflows.",[],PRDFBK-4806 KoTest SDK Support | PRDFBK-3494 SDK support for testcafe | PRDFBK-2990 SDK support for Testcafe | PRDFBK-2302 Requires SDK support for MSTest | PRDFBK-1402 Support for Junit in Java SDK | PRDFBK-979 Requires SDK support for MSTest | PRDFBK-978 Requires SDK support for MSTest
-SpecFlow .NET SDK Compatibility and Support,SDK Coverage,4,7,"Users require reliable SDK support for SpecFlow integration with various test runners (Nunit, MSTest, Playwright), as current functionality is either missing or reported as not working.",[],PRDFBK-2675 Support for Specflow + Nunit | PRDFBK-2674 Support for Specflow + Nunit | PRDFBK-2673 Support for Specflow + Nunit | PRDFBK-2660 MSTest + Specflow SDK Support | PRDFBK-2658 Support via SDK for PW and Specflow | PRDFBK-1637 MSTest + Specflow SDK Support | PRDFBK-847 specflow Dot net SDK not working
-Dynamic Test Allocation and Device Selection,Feature Request,4,5,Users require dynamic and equal distribution of tests across multiple selected devices and platforms to maximize parallel execution efficiency.,"['PRDFBK-5078', 'PRDFBK-4912', 'PRDFBK-4910', 'PRDFBK-4909', 'PRDFBK-2257']",PRDFBK-5078 Running selective tests on Selected devices. | PRDFBK-4912 Equal distribution of tests across multiple devices | PRDFBK-4910 Equal distribution of tests across multiple devices | PRDFBK-4909 Equal distribution of tests across multiple devices | PRDFBK-2257 Distribute tests across multiple platform dynamically using SDK.
-Expanded Playwright Integration and Coverage,Feature Request,4,4,"Users require improved and broader support for the Playwright framework, including specific integrations for Nx.dev environments, C# language support (with Reqnroll), and necessary configuration options like testMatch.","['PRDFBK-5967', 'PRDFBK-3873', 'PRDFBK-871', 'PRDFBK-687']",PRDFBK-5967 Support for Playwright C# with Reqnroll | PRDFBK-3873 Support with Playwright-NX | PRDFBK-871 testMatch for Playwright | PRDFBK-687 Nx.dev support with playwright
-C# SDK Compatibility and Support Needs,SDK Coverage,4,3,"Requests focus on critical compatibility enhancements for the C# SDK, specifically adding support for .NET Framework and M1/M2 architectures, alongside providing release notes.",[],PRDFBK-3591 Support for C# .NET Framework with SDK | PRDFBK-2654 Provide release notes for C# SDK | PRDFBK-1028 M1/M2 support for C# sdk
-Multi-Platform Parallel Execution Control,Feature Request,4,3,Users require better configuration options (limits and execution defaults) for handling parallel test execution across multiple defined platforms within the SDK.,[],PRDFBK-3376 SDK does not support parallelisation for multiple platforms using single yml file | PRDFBK-3236 Multiple platforms with specific parallel limit | PRDFBK-2662 Parallel execution by default if multiple platforms are defined
-Dynamic SDK Device Mapping,Feature Request,4,3,"Users require dynamic mechanisms within the SDK for device mapping, passing device context, and configuring device-specific application URLs.",[],PRDFBK-2927 SDK to device mapping | PRDFBK-1237 support for device level app URL with sdk | PRDFBK-184 Dynamic way to pass Devices in SDK
-Parallel Test Granularity & Execution Control,Feature Request,4,3,"Users require enhanced control and granularity (scenario/method level) for parallel test execution, including specific SDK support for frameworks like TestNG.","['PRDFBK-2655', 'PRDFBK-2652', 'PRDFBK-2245']",PRDFBK-2655 Parallel Test Execution Control | PRDFBK-2652 Ability to run parallel test on each scenario rather than a complete feature fil | PRDFBK-2245 SDK - Support for @test method parallel execution for Testng
-SpecFlow BDD and Ruby SDK Coverage for Observability,SDK Coverage,4,3,"Users require official SDK support or integration for SpecFlow BDD testing frameworks, specifically noting the crucial need for Ruby language coverage.",[],"PRDFBK-1364 SpecFlow, Ruby Support for Observability | PRDFBK-1115 Spec Flow BDD for Observability | PRDFBK-1112 Spec Flow BDD for Observability"
-Gauge Framework SDK Coverage,SDK Coverage,4,2,Users require specific SDK integrations to support the Gauge testing framework across Java/Selenium and Python environments.,[],PRDFBK-4572 SDK Support for Selenium + Java + Gauge | PRDFBK-4433 Alation | SDK support for Python Gauge for TO
-SDK Configuration Automation,Feature Request,4,2,Users require features to automate the generation of SDK configuration files via API and centralize a single configuration across multiple projects.,"['PRDFBK-4146', 'PRDFBK-2913']",PRDFBK-4146 One SDK config YML file across multiple projects | PRDFBK-2913 Generate SDK YML files using an API call
-SDK Developer Tooling and Documentation,Feature Request,4,2,Users require improved SDK transparency via changelogs and specific logging integration support (log4j) for terminal output.,"['PRDFBK-3970', 'PRDFBK-2372']",PRDFBK-3970 Support log4j with SDK on the terminal logs | PRDFBK-2372 Need changelogs for SDK
-New Test Framework Integrations,SDK Coverage,4,2,Users require immediate integration support for Test Complete and Python Behave testing frameworks into the Test Observability feature.,"['PRDFBK-2715', 'PRDFBK-680']",PRDFBK-2715 Test Complete Integration | PRDFBK-680 Python Behave Integration with Test Observability
-Uniformity of Build Tags Across Frameworks,SDK Coverage,4,2,Standardize the format and application of build tags across all supported development frameworks to ensure consistency and prevent integration errors.,"['PRDFBK-2664', 'PRDFBK-1967']",PRDFBK-2664 Build tags to be uniform across frameworks | PRDFBK-1967 Build tags to be uniform across frameworks
-AccelQ SDK Coverage Request,SDK Coverage,4,2,Users are requesting the development and release of an official SDK or comprehensive support for AccelQ integration.,"['PRDFBK-2072', 'PRDFBK-782']",PRDFBK-2072 AccelQ SDK | PRDFBK-782 Support AccelQ
-Automated Screen Reader Scanning,Feature Request,4,1,Request for implementing automated scanning capabilities specifically focused on screen reader compatibility for web applications.,['PRDFBK-6083'],PRDFBK-6083 Automated Screen Reader Scanning for Web
-Selenide SDK Support,SDK Coverage,4,1,Request to add support and integration for the Selenide SDK.,['PRDFBK-4442'],PRDFBK-4442 Support for Selenide SDK for TO
-Automated Test Report Processing Delay,Bug,4,1,Automated test reports are failing to complete processing and are getting stuck in the A11y status queue.,['PRDFBK-4375'],PRDFBK-4375 Automated tests reports stuck in A11y
-Async Test Status Synchronization,Bug,4,1,"The system needs reliable, real-time asynchronous updates for test scenario completion statuses, especially when integrated with platforms like BrowserStack.",['PRDFBK-4314'],PRDFBK-4314 Update test scenario's async as and when they complete on BrowserSTack
-Simultaneous Multi-App/Device Testing,Feature Request,4,1,Users require the ability to execute tests concurrently across different apps and device environments simultaneously.,['PRDFBK-4300'],PRDFBK-4300 Run different apps with different devices at the same time
-Java SDK Feature Gap: Parallels,SDK Coverage,4,1,The Java Serenity SDK is missing support for 'Parallels Per Platform' functionality.,['PRDFBK-3977'],PRDFBK-3977 Parallels Per Platform not supported on Java Serenity SDK
-Enterprise Tunnel Enforcement,Feature Request,4,1,Users require administrative controls to enforce specific tunnel settings across all enterprise accounts for security and consistency.,['PRDFBK-3895'],PRDFBK-3895 Enterprise-Level Enforcement of Tunnel Settings in BrowserStack
-Java SDK Temp Directory Compatibility,Bug,4,1,The Java SDK is failing to function correctly when handling or accessing files located in standard temporary directories (specifically noting a conflict with Gradle files).,['PRDFBK-3298'],PRDFBK-3298 Java SDK doesnt work with file %TEMP%/gradl
-Cypress 13 Accessibility Automation Support,Feature Request,4,1,Update support to include Cypress 13 to enable necessary accessibility automation testing.,['PRDFBK-3005'],PRDFBK-3005 Cypress 13 latest versions for a11y automation
-SDK Test Skipping Optimization,Feature Request,4,1,The SDK should be updated to identify and automatically skip execution of tests that do not generate Percy snapshots to improve overall build efficiency.,['PRDFBK-2839'],PRDFBK-2839 Have SDK identiofy tests without Percy snapshots and skip when using Percy
-SDK File and Media Upload Support,SDK Coverage,4,1,"Users require the ability to upload various file types, including images and audio, directly through the provided SDK.",['PRDFBK-2798'],"PRDFBK-2798 Uploading files, images and audios via SDK"
-POM File Formatting on SDK Install,Bug,4,1,"The SDK installation routine automatically and unexpectedly reformats the project's POM file, causing unintended file changes.",['PRDFBK-2184'],PRDFBK-2184 POM file gets formatted on SDK installation
-Missing browserstack.yml Generation (Maven),Bug,4,1,"The browserstack.yml configuration file is not automatically generated when integrating the dependency via the Maven pom.xml file, hindering setup.",['PRDFBK-2066'],PRDFBK-2066 browserstack.yml is not created by default after adding dependency in pom
-API for Muted Test Management,Feature Request,4,1,Requesting a new API endpoint to programmatically fetch the status of and trigger muted tests.,['PRDFBK-1242'],PRDFBK-1242 API to fetch and trigger muted tests.
-SDK Self-Service Debugging Tools,Feature Request,4,1,Customers require enhanced tooling and documentation to perform effective self-service debugging of SDK integrations without relying solely on external support.,['PRDFBK-1076'],PRDFBK-1076 SDK Debugging from Customer Side
-Mobile SDK Parallel Execution Support,Feature Request,4,1,Request for adding support for parallel execution capabilities within the Android and iOS SDKs to improve workflow efficiency.,['PRDFBK-434'],PRDFBK-434 Support for parallel execution through SDK for Android & iOS
-Python Behave SDK Coverage,SDK Coverage,3,3,"Users require formal SDK support for the Python Behave testing framework, and there is a related report of the existing Py test SDK failing.",[],PRDFBK-2152 Support For Python Behave SDK | PRDFBK-2116 Support for Behave (Python) | PRDFBK-849 Py test SDK not working correctly
-Ruby SDK Support and A11y,SDK Coverage,3,2,"Users are requesting official support for the Ruby SDK, specifically including accessibility (A11y) automation capabilities.","['PRDFBK-6074', 'PRDFBK-1033']",PRDFBK-6074 A11y Suport for Ruby - Automate | PRDFBK-1033 Ruby SDK Support
-Kaspresso Test Runner Support,SDK Coverage,3,2,Users are inquiring about or requesting official support and integration for the Kaspresso Test Runner framework.,"['PRDFBK-5984', 'PRDFBK-5968']",PRDFBK-5984 KaspressoRunner Support Inquiry | PRDFBK-5968 Kaspresso Test Runner Support
-SDK Support for Robot Framework (Playwright Browser),SDK Coverage,3,2,Users require explicit SDK compatibility and coverage when running tests using the Robot Framework 'Browser' library (which is Playwright-based).,[],PRDFBK-5555 Robot Framework with Browser (the Playwright-based library for Robot Framework) with SDK | PRDFBK-5512 Robot Framework with Browser (the Playwright-based library for Robot Framework)  with SDK
-Detox Testing Framework SDK Support,SDK Coverage,3,2,Users are requesting dedicated SDK support and integration for the Detox end-to-end testing framework.,[],PRDFBK-2653 SDK support for detox | PRDFBK-1198 SDK support for detox
-Katalon Test Observability Integration,Feature Request,3,2,Users are requesting official integration and support for Katalon within the Test Observability platform.,"['PRDFBK-401', 'PRDFBK-145']",PRDFBK-401 Katalon Observability integration | PRDFBK-145 Support for Katalon in Test Observability
-BS SDK Cross Platform Support,Feature Request,3,1,Request for adding cross-platform support/functionality to the existing BS SDK implementation.,['PRDFBK-5980'],PRDFBK-5980 Cross platform option in BS SDK
-SDK Support for ANT Builds,SDK Coverage,3,1,Request to integrate and officially support the SDK within the legacy ANT build system environment.,['PRDFBK-5732'],PRDFBK-5732 Support SDK on ANT builds
-Rust SDK Coverage,SDK Coverage,3,1,Users are requesting official SDK support and libraries for the Rust programming language.,['PRDFBK-5526'],PRDFBK-5526 Support for Rust language in official SDK
-Conditional Capabilities in SDK,Feature Request,3,1,Customers require the ability to implement conditional logic based on specific capabilities within the SDK environment.,['PRDFBK-4881'],PRDFBK-4881 Conditional Capabilities in SDK
-Dynamic SDK File Switching,Feature Request,3,1,"Users require the ability to dynamically switch or load different sets of SDK files (e.g., configuration or assets) during application runtime.",['PRDFBK-4880'],PRDFBK-4880 Switch SDK files Dynamically
-Unified App/Web Driver Flow in SDK,Feature Request,3,1,Request to enable support for seamless interaction between app and web drivers within a single SDK workflow.,['PRDFBK-4856'],PRDFBK-4856 Support app and web driver in a single flow via SDK
-Missing Branch Data in NAD,Bug,3,1,Branch information is not being successfully transmitted or displayed within the NAD system.,['PRDFBK-4376'],PRDFBK-4376 Branch info not coming to NAD
-Appium Java Serenity Support,Feature Request,3,1,Requesting official support and integration for Appium within the Java Serenity testing framework.,['PRDFBK-3978'],PRDFBK-3978 Appium support for Java Serenity
-Playwright Video Configuration,Feature Request,3,1,Users require the addition of support for configuring video recording parameters directly within the Playwright configuration file.,['PRDFBK-3849'],PRDFBK-3849 Support for video parameter in playwright config file
-Reqnroll SDK Integration,Feature Request,3,1,Requesting official SDK support and integration for the Reqnroll testing framework (reqnroll.net).,['PRDFBK-3598'],PRDFBK-3598 Support for https://reqnroll.net/ via the SDK
-App to Test Case Mapping,Feature Request,3,1,Request to implement a functional mapping structure linking specific applications to their corresponding test cases.,['PRDFBK-2928'],PRDFBK-2928 App to testcase mapping
-Night Watch JS Lower Version Support,SDK Coverage,3,1,Users require support for lower/older versions of the Night Watch JS framework within the Test Observability feature set.,['PRDFBK-2916'],PRDFBK-2916 Support for Lower Versions of Night Watch JS with Test Observability
-JetBrains SDK Plugin Support,Feature Request,3,1,A dedicated SDK plugin is requested to improve integration and workflow within JetBrains IDEs.,['PRDFBK-2842'],PRDFBK-2842 Jetbrain SDK plugin
-Parallelism Format Expansion,Feature Request,3,1,User is requesting the introduction of an alternative or additional structure/format for managing parallelism within the system.,['PRDFBK-2799'],PRDFBK-2799 Another parallelism format
-Cucumber JS Integration for A11y Automation,Feature Request,3,1,Request for integration with Cucumber JS to enable automated accessibility (A11y) testing workflows.,['PRDFBK-2663'],PRDFBK-2663 Cucumber JS integration required for A11y automation
-Conditional Dashboard Element Visibility,Bug,3,1,"Automated test execution metrics are incorrectly gated, appearing only if the 'TO' setting is enabled on the dashboard.",['PRDFBK-2661'],PRDFBK-2661 Automated Test Execution appears on the TM Dashboard only when TO is enabled.
-SDK Session Metadata Support,Feature Request,3,1,Requesting new SDK features to manage and retrieve session status and display names programmatically.,['PRDFBK-2659'],PRDFBK-2659 SDK support for session status and name
-Test Level Capacity and Quotas,Other,3,1,Feedback regarding capacity limits or usage caps specifically applied at the test level.,['PRDFBK-2128'],PRDFBK-2128 Test-Lvl Caps
-Capybara SDK Support,SDK Coverage,3,1,A request for a new SDK supporting the Capybara testing framework.,['PRDFBK-2069'],PRDFBK-2069 Capybara SDK
-Unintended Build Identifier Generation,Bug,3,1,"When 'buildIdentifier' is commented out in the SDK YML configuration, the system incorrectly generates and adds a unique build number.",['PRDFBK-1966'],"PRDFBK-1966 Commenting out buildIdentifier in SDK YML, should not add unique number in buil"
-TestCafe Support for Observability,Feature Request,3,1,Request for an official SDK or integration to support the TestCafe framework within the observability infrastructure.,['PRDFBK-1514'],PRDFBK-1514 testcafe for o11y
-XCUITest Framework Support,Feature Request,3,1,Request for adding integration or dedicated support for Apple's native XCUITest UI testing framework.,['PRDFBK-905'],PRDFBK-905 Support for XCUITest
-TestNG Integration Request,Feature Request,3,1,Customer requests direct integration support for the TestNG testing framework.,['PRDFBK-749'],PRDFBK-749 Customer would like direct integration with TestNG
-Show Platforms in Terminal Output,Feature Request,3,1,Users want the SDK to display platform information directly in the terminal output for better context and debugging.,['PRDFBK-314'],PRDFBK-314 SDK feedback - Show Platforms in terminal
-Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 3.198344279s. [links {
+Error: Failed to Summarize,Other,1,9,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 23.451946711s. [links {
   description: ""Learn more about Gemini API quotas""
   url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
 }
 , violations {
   quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
   quota_dimensions {
     key: ""model""
     value: ""gemini-2.5-flash""
@@ -81,21 +16,757 @@ Please retry in 3.198344279s. [links {
     key: ""location""
     value: ""global""
   }
-  quota_value: 10
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 23
+}
+]",[],PRDFBK-4676 SDK integration with Playwright+Cucumber+Typescript framework | PRDFBK-4009 Playwright cucumber SDK support | PRDFBK-3631 Playwright Cucumber Support: SDK and Accessibility | PRDFBK-3455 Support for Java+playwright+cucumber frameworks on TO | PRDFBK-2895 CucumberJS with Playwright support | PRDFBK-1590 O11y support for Cucumber Java & Selenium | PRDFBK-1498 cucumber-js/playwright sdk support | PRDFBK-1140 Support Java Cucumber O11y | PRDFBK-288 JBehave Cucumber integration
+Error: Failed to Summarize,Other,1,7,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 36.632809409s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 36
+}
+]",[],PRDFBK-4806 KoTest SDK Support | PRDFBK-3494 SDK support for testcafe | PRDFBK-2990 SDK support for Testcafe | PRDFBK-2302 Requires SDK support for MSTest | PRDFBK-1402 Support for Junit in Java SDK | PRDFBK-979 Requires SDK support for MSTest | PRDFBK-978 Requires SDK support for MSTest
+Error: Failed to Summarize,Other,1,7,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 14.649493613s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 14
+}
+]",[],PRDFBK-2675 Support for Specflow + Nunit | PRDFBK-2674 Support for Specflow + Nunit | PRDFBK-2673 Support for Specflow + Nunit | PRDFBK-2660 MSTest + Specflow SDK Support | PRDFBK-2658 Support via SDK for PW and Specflow | PRDFBK-1637 MSTest + Specflow SDK Support | PRDFBK-847 specflow Dot net SDK not working
+Error: Failed to Summarize,Other,1,6,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 39.109832772s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 39
+}
+]",[],PRDFBK-3022 Need support for Test Observability with Espresso/Xcuitest | PRDFBK-2657 Espresso and XCUITest | PRDFBK-2287 Support Espresso/XCUITest Observability | PRDFBK-2252 Espresso and XCUITest support for Test Observability | PRDFBK-906 Espresso/XCUITest Support for Observability | PRDFBK-861 SDK support for XCUIT and Espresso
+Error: Failed to Summarize,Other,1,5,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 42.504763537s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 42
+}
+]",[],PRDFBK-5078 Running selective tests on Selected devices. | PRDFBK-4912 Equal distribution of tests across multiple devices | PRDFBK-4910 Equal distribution of tests across multiple devices | PRDFBK-4909 Equal distribution of tests across multiple devices | PRDFBK-2257 Distribute tests across multiple platform dynamically using SDK.
+Error: Failed to Summarize,Other,1,5,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 1.54195286s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 1
+}
+]",[],PRDFBK-2665 Gradle Documentation for SDK | PRDFBK-2376 Improve SDK Documentation | PRDFBK-2352 Difficulty in onboarding to SDK | PRDFBK-1244 DIfficulty in integrating the SDK | PRDFBK-173 Difficulty in onboarding to SDK
+Error: Failed to Summarize,Other,1,4,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 35.260231145s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 35
+}
+]",[],PRDFBK-5967 Support for Playwright C# with Reqnroll | PRDFBK-3873 Support with Playwright-NX | PRDFBK-871 testMatch for Playwright | PRDFBK-687 Nx.dev support with playwright
+Error: Failed to Summarize,Other,1,3,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 18.700821129s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 18
+}
+]",[],PRDFBK-3591 Support for C# .NET Framework with SDK | PRDFBK-2654 Provide release notes for C# SDK | PRDFBK-1028 M1/M2 support for C# sdk
+Error: Failed to Summarize,Other,1,3,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 5.532089834s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 5
+}
+]",[],PRDFBK-3376 SDK does not support parallelisation for multiple platforms using single yml file | PRDFBK-3236 Multiple platforms with specific parallel limit | PRDFBK-2662 Parallel execution by default if multiple platforms are defined
+Error: Failed to Summarize,Other,1,3,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 59.744083367s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 59
+}
+]",[],PRDFBK-2927 SDK to device mapping | PRDFBK-1237 support for device level app URL with sdk | PRDFBK-184 Dynamic way to pass Devices in SDK
+Error: Failed to Summarize,Other,1,3,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 55.767889103s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 55
+}
+]",[],PRDFBK-2655 Parallel Test Execution Control | PRDFBK-2652 Ability to run parallel test on each scenario rather than a complete feature fil | PRDFBK-2245 SDK - Support for @test method parallel execution for Testng
+Error: Failed to Summarize,Other,1,3,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 3.128582225s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
 }
 , retry_delay {
   seconds: 3
+}
+]",[],PRDFBK-2152 Support For Python Behave SDK | PRDFBK-2116 Support for Behave (Python) | PRDFBK-849 Py test SDK not working correctly
+Error: Failed to Summarize,Other,1,3,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 31.051808633s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 31
+}
+]",[],"PRDFBK-1364 SpecFlow, Ruby Support for Observability | PRDFBK-1115 Spec Flow BDD for Observability | PRDFBK-1112 Spec Flow BDD for Observability"
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 28.0081025s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 28
+}
+]",[],PRDFBK-6074 A11y Suport for Ruby - Automate | PRDFBK-1033 Ruby SDK Support
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 14.837703961s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 14
+}
+]",[],PRDFBK-5984 KaspressoRunner Support Inquiry | PRDFBK-5968 Kaspresso Test Runner Support
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 48.484206987s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 48
+}
+]",[],PRDFBK-5977 Browserstack Python SDK Integration does not work | PRDFBK-5468 [IRCC] Include cacert via browserstack-sdk
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 8.881092049s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 8
+}
+]",[],PRDFBK-5555 Robot Framework with Browser (the Playwright-based library for Robot Framework) with SDK | PRDFBK-5512 Robot Framework with Browser (the Playwright-based library for Robot Framework)  with SDK
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 10.262485049s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 10
+}
+]",[],PRDFBK-4572 SDK Support for Selenium + Java + Gauge | PRDFBK-4433 Alation | SDK support for Python Gauge for TO
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 51.054260551s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 51
+}
+]",[],PRDFBK-4146 One SDK config YML file across multiple projects | PRDFBK-2913 Generate SDK YML files using an API call
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 11.492767859s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 11
+}
+]",[],PRDFBK-3970 Support log4j with SDK on the terminal logs | PRDFBK-2372 Need changelogs for SDK
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 27.843565681s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 27
+}
+]",[],PRDFBK-2715 Test Complete Integration | PRDFBK-680 Python Behave Integration with Test Observability
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 48.398632918s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 48
+}
+]",[],PRDFBK-2664 Build tags to be uniform across frameworks | PRDFBK-1967 Build tags to be uniform across frameworks
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 42.611578169s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 42
+}
+]",[],PRDFBK-2653 SDK support for detox | PRDFBK-1198 SDK support for detox
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 36.831121225s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 36
+}
+]",[],PRDFBK-2072 AccelQ SDK | PRDFBK-782 Support AccelQ
+Error: Failed to Summarize,Other,1,2,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 58.804556535s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 58
+}
+]",[],PRDFBK-401 Katalon Observability integration | PRDFBK-145 Support for Katalon in Test Observability
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 41.202131159s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 41
+}
+]",[],PRDFBK-6083 Automated Screen Reader Scanning for Web
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 1.647748981s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 1
+}
+]",[],PRDFBK-5980 Cross platform option in BS SDK
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 22.029598375s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 22
+}
+]",[],PRDFBK-5732 Support SDK on ANT builds
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 55.651271214s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 55
+}
+]",[],PRDFBK-5526 Support for Rust language in official SDK
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 29.354667719s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 29
+}
+]",[],PRDFBK-4881 Conditional Capabilities in SDK
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 16.110284199s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 16
+}
+]",[],PRDFBK-4880 Switch SDK files Dynamically
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 2.939823823s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 2
+}
+]",[],PRDFBK-4856 Support app and web driver in a single flow via SDK
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 49.767693258s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 49
 }
 ]",[],PRDFBK-4826 SDK support for Dart framework
 Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 3.103340089s. [links {
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 57.119933444s. [links {
   description: ""Learn more about Gemini API quotas""
   url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
 }
 , violations {
   quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
   quota_dimensions {
     key: ""model""
     value: ""gemini-2.5-flash""
@@ -104,21 +775,389 @@ Please retry in 3.103340089s. [links {
     key: ""location""
     value: ""global""
   }
-  quota_value: 10
+  quota_value: 250
 }
 , retry_delay {
-  seconds: 3
+  seconds: 57
+}
+]",[],PRDFBK-4442 Support for Selenide SDK for TO
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 43.955845922s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 43
+}
+]",[],PRDFBK-4376 Branch info not coming to NAD
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 30.580866958s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 30
+}
+]",[],PRDFBK-4375 Automated tests reports stuck in A11y
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 17.446354703s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 17
+}
+]",[],PRDFBK-4314 Update test scenario's async as and when they complete on BrowserSTack
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 4.219558047s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 4
+}
+]",[],PRDFBK-4300 Run different apps with different devices at the same time
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 37.884014567s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 37
+}
+]",[],PRDFBK-3978 Appium support for Java Serenity
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 24.691143693s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 24
+}
+]",[],PRDFBK-3977 Parallels Per Platform not supported on Java Serenity SDK
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 58.300840953s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 58
+}
+]",[],PRDFBK-3895 Enterprise-Level Enforcement of Tunnel Settings in BrowserStack
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 45.087368002s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 45
+}
+]",[],PRDFBK-3849 Support for video parameter in playwright config file
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 31.882838012s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 31
+}
+]",[],PRDFBK-3598 Support for https://reqnroll.net/ via the SDK
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 52.324297171s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 52
+}
+]",[],PRDFBK-3298 Java SDK doesnt work with file %TEMP%/gradl
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 26.006281617s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 26
+}
+]",[],PRDFBK-3005 Cypress 13 latest versions for a11y automation
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 12.897912287s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 12
+}
+]",[],PRDFBK-2928 App to testcase mapping
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 46.600169706s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 46
+}
+]",[],PRDFBK-2916 Support for Lower Versions of Night Watch JS with Test Observability
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 33.481617366s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 33
+}
+]",[],PRDFBK-2842 Jetbrain SDK plugin
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 20.379296512s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 20
+}
+]",[],PRDFBK-2839 Have SDK identiofy tests without Percy snapshots and skip when using Percy
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 7.259595635s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 7
 }
 ]",[],PRDFBK-2837 change default logs path of Browserstack SDK
 Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 3.38019062s. [links {
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 54.140368804s. [links {
   description: ""Learn more about Gemini API quotas""
   url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
 }
 , violations {
   quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
   quota_dimensions {
     key: ""model""
     value: ""gemini-2.5-flash""
@@ -127,21 +1166,159 @@ Please retry in 3.38019062s. [links {
     key: ""location""
     value: ""global""
   }
-  quota_value: 10
+  quota_value: 250
 }
 , retry_delay {
-  seconds: 3
+  seconds: 54
+}
+]",[],PRDFBK-2799 Another parallelism format
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 41.022732844s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 41
+}
+]",[],"PRDFBK-2798 Uploading files, images and audios via SDK"
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 35.191707592s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 35
+}
+]",[],PRDFBK-2663 Cucumber JS integration required for A11y automation
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 22.085792471s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 22
+}
+]",[],PRDFBK-2661 Automated Test Execution appears on the TM Dashboard only when TO is enabled.
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 8.949067421s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 8
+}
+]",[],PRDFBK-2659 SDK support for session status and name
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 29.337743553s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 29
+}
+]",[],PRDFBK-2184 POM file gets formatted on SDK installation
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 16.216363708s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 16
 }
 ]",[],PRDFBK-2169 SDK not being transparent
 Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
-Please retry in 6.387063882s. [links {
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 49.98370898s. [links {
   description: ""Learn more about Gemini API quotas""
   url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
 }
 , violations {
   quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
-  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
   quota_dimensions {
     key: ""model""
     value: ""gemini-2.5-flash""
@@ -150,9 +1327,262 @@ Please retry in 6.387063882s. [links {
     key: ""location""
     value: ""global""
   }
-  quota_value: 10
+  quota_value: 250
 }
 , retry_delay {
-  seconds: 6
+  seconds: 49
+}
+]",[],PRDFBK-2128 Test-Lvl Caps
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 23.597459556s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 23
+}
+]",[],PRDFBK-2069 Capybara SDK
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 10.453076696s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 10
+}
+]",[],PRDFBK-2066 browserstack.yml is not created by default after adding dependency in pom
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 57.317647872s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 57
+}
+]",[],"PRDFBK-1966 Commenting out buildIdentifier in SDK YML, should not add unique number in buil"
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 44.211276175s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 44
+}
+]",[],PRDFBK-1514 testcafe for o11y
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 17.94029101s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 17
+}
+]",[],PRDFBK-1242 API to fetch and trigger muted tests.
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 4.77656432s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 4
+}
+]",[],PRDFBK-1076 SDK Debugging from Customer Side
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 51.646950805s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 51
+}
+]",[],PRDFBK-905 Support for XCUITest
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 38.540742782s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 38
+}
+]",[],PRDFBK-749 Customer would like direct integration with TestNG
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 25.255476471s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 25
 }
 ]",[],PRDFBK-695 Support Mspec framework for Test Observability
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 12.023753131s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 12
+}
+]",[],PRDFBK-434 Support for parallel execution through SDK for Android & iOS
+Error: Failed to Summarize,Other,1,1,"Error classifying batch: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 45.602215328s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 45
+}
+]",[],PRDFBK-314 SDK feedback - Show Platforms in terminal

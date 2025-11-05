@@ -31,7 +31,7 @@ def load_embedding_model():
 # ---------------------
 
 DISTANCE_THRESHOLD = 0.35
-SIMILARITY_THRESHOLD = 0.60
+#SIMILARITY_THRESHOLD = 0.60
 
 # -------------------------
 # Utilities
@@ -119,7 +119,7 @@ def get_semantic_clusters(feedback_df, text_column, grouping_context=""):
 # -----------------------------------------------------------------
 # We also cache the mapping step.
 @st.cache_data
-def map_feedback_to_dealblockers(feedback_df, jira_df):
+def map_feedback_to_dealblockers(feedback_df, jira_df, similarity_threshold=0.7):
     """
     Maps consolidated feedback clusters to Jira dealblockers using a
     hybrid approach.
@@ -142,12 +142,29 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
     unmatched_feedback_rows = []
 
     # --- Pass 1: Explicit Key Matching ---
+    # --- Pass 1: Explicit Key Matching ---
+    # --- Pass 1: Explicit Key Matching ---
     for _, fb_row in feedback_df.iterrows():
-        try:
-            issue_keys = ast.literal_eval(str(fb_row['issue_keys']))
-        except (ValueError, SyntaxError):
-            issue_keys = []
+
+        # --- START FIX ---
+        # Robustly parse the 'issue_keys' column
+        issue_keys_str = str(fb_row.get('issue_keys', '[]'))
         
+        # Handle cases where the value is None, NaN, or an empty string
+        if issue_keys_str.lower() in ('', 'nan', 'none', 'null'):
+            issue_keys = []
+        else:
+            try:
+                # Try to evaluate the string as a Python literal
+                issue_keys = ast.literal_eval(issue_keys_str)
+                # Ensure the result is actually a list
+                if not isinstance(issue_keys, list):
+                    issue_keys = []
+            except (ValueError, SyntaxError):
+                # Fail safely to an empty list
+                issue_keys = []
+        # --- END FIX ---
+
         explicitly_matched = False
         for key in issue_keys:
             if key in jira_key_set:
@@ -170,6 +187,8 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
             unmatched_feedback_rows.append(fb_row)
 
     # --- Pass 2: Semantic Similarity Matching ---
+
+    # --- Pass 2: Semantic Similarity Matching ---
     if unmatched_feedback_rows:
         unmatched_df = pd.DataFrame(unmatched_feedback_rows)
         
@@ -186,7 +205,7 @@ def map_feedback_to_dealblockers(feedback_df, jira_df):
                 best_match_idx = cos_scores[i].argmax().item()
                 best_score = cos_scores[i][best_match_idx].item()
                 
-                if best_score >= SIMILARITY_THRESHOLD:
+                if best_score >= similarity_threshold:
                     jira_row = jira_df.iloc[best_match_idx]
                     
                     all_mappings.append({

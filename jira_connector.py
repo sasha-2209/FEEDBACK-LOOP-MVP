@@ -2,13 +2,14 @@ import os
 import requests
 import pandas as pd
 from dotenv import load_dotenv
-import streamlit as st  # <-- ADD THIS IMPORT
+import streamlit as st  
 
 load_dotenv()
 
 JIRA_BASE_URL = os.getenv("JIRA_BASE_URL")
 JIRA_EMAIL = os.getenv("JIRA_EMAIL")
 JIRA_API_TOKEN = os.getenv("JIRA_API_TOKEN")
+
 
 # --- THIS IS THE FIX ---
 # Cache the JIRA API call. If the JQL query is the same,
@@ -36,8 +37,8 @@ def fetch_jira_issues(jql_query):
             "reporter", 
             "status", 
             "priority",
-            "customfield_10016",  # ARR (adjust if your field ID differs)
-            "customfield_10015"   # Deal size
+            "customfield_10693",  # ARR (adjust if your field ID differs)
+            "customfield_10694"   # Deal size
         ]
     }
 
@@ -59,8 +60,8 @@ def fetch_jira_issues(jql_query):
                 "Status": fields.get("status", {}).get("name"),
                 "Reporter": fields.get("reporter", {}).get("displayName"),
                 "Priority": fields.get("priority", {}).get("name"),
-                "ARR": fields.get("customfield_10016"),
-                "Deal Size": fields.get("customfield_10015"),
+                "ARR": fields.get("customfield_10693"),
+                "Deal Size": fields.get("customfield_10694"),
             })
 
         if not issues:
@@ -70,7 +71,9 @@ def fetch_jira_issues(jql_query):
                 "Reporter", "Priority", "ARR", "Deal Size"
             ])
 
-        return pd.DataFrame(issues)
+        df = pd.DataFrame(issues)
+
+        return df
 
     except requests.exceptions.HTTPError as e:
         raise RuntimeError(
